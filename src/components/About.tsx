@@ -51,8 +51,8 @@ export default function About() {
             
             <div className="relative rounded-[2rem] overflow-hidden bg-white p-3 shadow-xl border border-charcoal/5">
               <SafeImage
-                src="https://res.cloudinary.com/davtdct3r/image/upload/f_auto,q_auto/IMG_20260124_210702_1_i7kzyi"
-                fallbackSrc="https://res.cloudinary.com/davtdct3r/image/upload/f_auto,q_auto/IMG_20260124_210702_1_i7kzyi"
+                src="https://res.cloudinary.com/davtdct3r/image/upload/v1783175593/IMG_20260612_183706_762.jpg_trr22g.jpg"
+                fallbackSrc="https://res.cloudinary.com/davtdct3r/image/upload/v1783175593/IMG_20260612_183706_762.jpg_trr22g.jpg"
                 alt={`${personalInfo.displayName} Professional`}
                 category="branding"
                 loading="lazy"
