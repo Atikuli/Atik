@@ -158,15 +158,22 @@ export default function Hero() {
             {/* Interactive floating stats node */}
             <motion.div
               animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-2 -right-2 glass-card rounded-2xl px-5 py-3 shadow-lg border border-white/80 flex items-center gap-3 z-20"
+              whileHover={{ scale: 1.04, y: [0, 8, 0] }}
+              transition={{ 
+                y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+                scale: { duration: 0.2 }
+              }}
+              className="absolute -bottom-6 -right-6 md:-bottom-2 md:-right-2 glass-card rounded-2xl px-5 py-3.5 shadow-lg border border-white/80 flex items-center gap-3.5 z-20 hover:border-gold/30 hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] transition-colors duration-300 cursor-default"
             >
-              <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center">
-                <Sparkles className="w-4.5 h-4.5 text-gold fill-gold/10" />
+              <div className="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0 border border-gold/20">
+                <Sparkles className="w-5 h-5 fill-gold/10" />
               </div>
               <div className="text-left">
-                <span className="block font-display font-bold text-sm text-charcoal">5+ Years</span>
-                <span className="block text-[10px] text-muted-dark font-mono uppercase tracking-wider">Experience</span>
+                <span className="block font-display font-bold text-xs sm:text-sm text-charcoal tracking-wide">NSDA Certified</span>
+                <span className="block text-[9px] text-muted-dark font-mono uppercase tracking-wide leading-relaxed mt-0.5">
+                  • Graphics Design (L-3)<br />
+                  • IT Support Service (L-3)
+                </span>
               </div>
             </motion.div>
           </div>

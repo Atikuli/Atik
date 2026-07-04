@@ -44,9 +44,13 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
       {/* Mobile Top Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-20 bg-[#FAF6EA]/90 backdrop-blur-md border-b border-[#222222]/10 px-6 flex items-center justify-between z-40">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center border border-gold/30">
-            <span className="font-display font-bold text-[#222222]">{personalInfo.initials}</span>
-          </div>
+          <motion.img 
+            src="https://res.cloudinary.com/davtdct3r/image/upload/f_auto,q_auto/image-clean_mrkr6l" 
+            alt="Atik Hamim Logo"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            className="h-10 w-auto object-contain cursor-pointer"
+          />
           <div>
             <h1 className="font-display font-bold text-[#222222] text-sm leading-tight">{personalInfo.displayName}</h1>
             <p className="text-xs text-muted-dark">Graphic Designer & IT</p>
@@ -84,7 +88,13 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
             >
               <div>
                 <div className="flex justify-between items-center mb-8">
-                  <span className="font-display font-bold text-xl text-charcoal tracking-wider">{(personalInfo as any).displayName?.toUpperCase() || 'ATIK HAMIM'}</span>
+                  <motion.img 
+                    src="https://res.cloudinary.com/davtdct3r/image/upload/f_auto,q_auto/image-clean_mrkr6l" 
+                    alt="Atik Hamim Logo"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    className="h-12 w-auto object-contain cursor-pointer"
+                  />
                   <button 
                     onClick={() => setIsOpen(false)}
                     className="w-8 h-8 flex items-center justify-center rounded-lg bg-white shadow-sm text-charcoal hover:text-gold"
@@ -163,10 +173,14 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
       <aside className="hidden lg:flex w-[260px] h-screen fixed top-0 left-0 bg-[#FAF6EA] border-r border-[#222222]/10 p-6 flex-col justify-between z-30">
         <div>
           {/* Logo Brand */}
-          <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center border border-gold/30">
-              <span className="font-display font-bold text-[#222222]">{personalInfo.initials}</span>
-            </div>
+          <div className="flex items-center gap-3 mb-10 group/logo">
+            <motion.img 
+              src="https://res.cloudinary.com/davtdct3r/image/upload/f_auto,q_auto/image-clean_mrkr6l" 
+              alt="Atik Hamim Logo"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="h-[52px] w-auto object-contain cursor-pointer"
+            />
             <div>
               <h1 className="font-display font-bold text-charcoal tracking-wider text-sm">{(personalInfo as any).displayName?.toUpperCase() || 'ATIK HAMIM'}</h1>
               <p className="text-[10px] uppercase font-mono tracking-widest text-gold font-semibold">Designer & IT</p>
