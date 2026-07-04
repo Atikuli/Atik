@@ -7,9 +7,6 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss(), viteSingleFile()],
-    define: {
-      'process.env.GOOGLE_MAPS_PLATFORM_KEY': JSON.stringify(process.env.GOOGLE_MAPS_PLATFORM_KEY || '')
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
