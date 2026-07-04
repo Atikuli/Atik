@@ -12,6 +12,8 @@ interface TimelineItem {
   title: { en: string; bn: string };
   institution: { en: string; bn: string };
   department?: { en: string; bn: string };
+  board?: { en: string; bn: string };
+  group?: { en: string; bn: string };
   period: { en: string; bn: string };
   type: 'education' | 'training' | 'certification';
   description: { en: string; bn: string };
@@ -29,9 +31,13 @@ const timelineItems: TimelineItem[] = [
       en: 'Rajshahi Court Academy',
       bn: 'রাজশাহী কোর্ট একাডেমি'
     },
-    department: {
-      en: 'Group: Science',
-      bn: 'গ্রুপ: বিজ্ঞান'
+    board: {
+      en: 'Rajshahi Board',
+      bn: 'রাজশাহী বোর্ড'
+    },
+    group: {
+      en: 'Science',
+      bn: 'বিজ্ঞান'
     },
     period: {
       en: 'Completed',
@@ -43,8 +49,8 @@ const timelineItems: TimelineItem[] = [
       bn: 'বিজ্ঞান, গণিত এবং যুক্তিবিদ্যার দৃঢ় ভিত্তির সাথে সফলভাবে মাধ্যমিক স্কুল সার্টিফিকেট সম্পন্ন করেছেন।'
     },
     highlights: {
-      en: ['Science Group Focus', 'Board of Intermediate & Secondary Education, Rajshahi', 'Academic Excellence Foundation'],
-      bn: ['বিজ্ঞান বিভাগ', 'মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ড, রাজশাহী', 'প্রাতিষ্ঠানিক দক্ষতার ভিত্তি']
+      en: ['Science Group Curriculum', 'Rajshahi Board Examination', 'Academic Excellence Foundation'],
+      bn: ['বিজ্ঞান বিভাগ কারিকুলাম', 'রাজশাহী বোর্ড পরীক্ষা', 'প্রাতিষ্ঠানিক দক্ষতার ভিত্তি']
     }
   },
   {
@@ -57,9 +63,13 @@ const timelineItems: TimelineItem[] = [
       en: 'Metropolitan College',
       bn: 'মেট্রোপলিটন কলেজ'
     },
-    department: {
-      en: 'Group: Humanities',
-      bn: 'গ্রুপ: মানবিক'
+    board: {
+      en: 'Rajshahi Board',
+      bn: 'রাজশাহী বোর্ড'
+    },
+    group: {
+      en: 'Humanities',
+      bn: 'মানবিক'
     },
     period: {
       en: 'Completed',
@@ -71,8 +81,8 @@ const timelineItems: TimelineItem[] = [
       bn: 'সফলভাবে উচ্চ মাধ্যমিক স্তরের পড়াশোনা সম্পন্ন করেছেন, যা মানবিক শাখা, সাহিত্য এবং সমাজবিজ্ঞানের জ্ঞান প্রসারিত করেছে।'
     },
     highlights: {
-      en: ['Humanities Group Curriculum', 'Analytical & Social Studies', 'Critical & Empathetic Thinking'],
-      bn: ['মানবিক বিভাগ কারিকুলাম', 'বিশ্লেষণাত্মক ও সামাজিক শিক্ষা', 'গঠনমূলক ও সহমর্মিতাপূর্ণ চিন্তাভাবনা']
+      en: ['Humanities Group Curriculum', 'Rajshahi Board Examination', 'Critical & Empathetic Thinking'],
+      bn: ['মানবিক বিভাগ কারিকুলাম', 'রাজশাহী বোর্ড পরীক্ষা', 'গঠনমূলক ও সহমর্মিতাপূর্ণ চিন্তাভাবনা']
     }
   },
   {
@@ -86,8 +96,8 @@ const timelineItems: TimelineItem[] = [
       bn: 'সরকারি বাংলা কলেজ, ঢাকা'
     },
     department: {
-      en: 'Department of Islamic Studies',
-      bn: 'ইসলামিক স্টাডিজ বিভাগ'
+      en: 'Islamic Studies',
+      bn: 'ইসলামিক স্টাডিজ'
     },
     period: {
       en: 'Second Year (Running)',
@@ -275,17 +285,35 @@ export default function ResumeTimeline() {
                           {language === 'bn' ? item.title.bn : item.title.en}
                         </h3>
                         
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs font-semibold text-charcoal/80 dark:text-gray-300 mt-1">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-1 sm:gap-2 text-xs font-semibold text-charcoal/80 dark:text-gray-300 mt-1">
                           <span className="flex items-center gap-1">
                             <Building2 className="w-3.5 h-3.5 text-gold shrink-0" />
                             {language === 'bn' ? item.institution.bn : item.institution.en}
                           </span>
                           
+                          {item.board && (
+                            <>
+                              <span className="hidden sm:inline text-charcoal/40 dark:text-white/20">|</span>
+                              <span className="text-muted-dark dark:text-gray-400 font-mono text-[11px] uppercase tracking-wide">
+                                {language === 'bn' ? `বোর্ড: ${item.board.bn}` : `Board: ${item.board.en}`}
+                              </span>
+                            </>
+                          )}
+
+                          {item.group && (
+                            <>
+                              <span className="hidden sm:inline text-charcoal/40 dark:text-white/20">|</span>
+                              <span className="text-muted-dark dark:text-gray-400 font-mono text-[11px] uppercase tracking-wide">
+                                {language === 'bn' ? `গ্রুপ: ${item.group.bn}` : `Group: ${item.group.en}`}
+                              </span>
+                            </>
+                          )}
+
                           {item.department && (
                             <>
                               <span className="hidden sm:inline text-charcoal/40 dark:text-white/20">|</span>
                               <span className="text-muted-dark dark:text-gray-400 font-mono text-[11px] uppercase tracking-wide">
-                                {language === 'bn' ? item.department.bn : item.department.en}
+                                {language === 'bn' ? `বিভাগ: ${item.department.bn}` : `Dept: ${item.department.en}`}
                               </span>
                             </>
                           )}
