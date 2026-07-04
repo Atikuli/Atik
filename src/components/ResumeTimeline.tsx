@@ -29,6 +29,10 @@ const timelineItems: TimelineItem[] = [
       en: 'Rajshahi Court Academy',
       bn: 'রাজশাহী কোর্ট একাডেমি'
     },
+    department: {
+      en: 'Group: Science',
+      bn: 'গ্রুপ: বিজ্ঞান'
+    },
     period: {
       en: 'Completed',
       bn: 'সম্পন্ন'
@@ -53,18 +57,22 @@ const timelineItems: TimelineItem[] = [
       en: 'Metropolitan College',
       bn: 'মেট্রোপলিটন কলেজ'
     },
+    department: {
+      en: 'Group: Humanities',
+      bn: 'গ্রুপ: মানবিক'
+    },
     period: {
       en: 'Completed',
       bn: 'সম্পন্ন'
     },
     type: 'education',
     description: {
-      en: 'Successfully completed higher secondary studies, expanding analytical skills and core academic principles.',
-      bn: 'সফলভাবে উচ্চ মাধ্যমিক স্তরের পড়াশোনা সম্পন্ন করেছেন, যা বিশ্লেষণাত্মক দক্ষতা এবং প্রাতিষ্ঠানিক ভিত্তি প্রসারিত করেছে।'
+      en: 'Successfully completed higher secondary studies, expanding understanding of humanities, literature, and social sciences.',
+      bn: 'সফলভাবে উচ্চ মাধ্যমিক স্তরের পড়াশোনা সম্পন্ন করেছেন, যা মানবিক শাখা, সাহিত্য এবং সমাজবিজ্ঞানের জ্ঞান প্রসারিত করেছে।'
     },
     highlights: {
-      en: ['Science Group Curriculum', 'Analytical & Theoretical Studies', 'Symmetric Logical Thinking'],
-      bn: ['বিজ্ঞান বিভাগ কারিকুলাম', 'বিশ্লেষণাত্মক ও তাত্ত্বিক শিক্ষা', 'পদ্ধতিগত ও যুক্তিভিত্তিক চিন্তাভাবনা']
+      en: ['Humanities Group Curriculum', 'Analytical & Social Studies', 'Critical & Empathetic Thinking'],
+      bn: ['মানবিক বিভাগ কারিকুলাম', 'বিশ্লেষণাত্মক ও সামাজিক শিক্ষা', 'গঠনমূলক ও সহমর্মিতাপূর্ণ চিন্তাভাবনা']
     }
   },
   {
@@ -74,8 +82,8 @@ const timelineItems: TimelineItem[] = [
       bn: 'স্নাতক (সম্মান)'
     },
     institution: {
-      en: 'Government Bangla College',
-      bn: 'সরকারি বাংলা কলেজ'
+      en: 'Government Bangla College, Dhaka',
+      bn: 'সরকারি বাংলা কলেজ, ঢাকা'
     },
     department: {
       en: 'Department of Islamic Studies',
