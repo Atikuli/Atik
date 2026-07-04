@@ -446,3 +446,61 @@ export const blogPosts: BlogPost[] = [
     }
   }
 ];
+
+export interface SocialLink {
+  id: string;
+  name: string;
+  url: string;
+  iconName: string;
+}
+
+export const socialLinks: SocialLink[] = [
+  {
+    id: 'social-1',
+    name: 'Facebook',
+    url: 'https://www.facebook.com/atikul.islam.hamim.2025/',
+    iconName: 'Facebook',
+  },
+  {
+    id: 'social-2',
+    name: 'Instagram',
+    url: 'https://www.instagram.com/atikulhamim/?hl=en',
+    iconName: 'Instagram',
+  },
+  {
+    id: 'social-3',
+    name: 'WhatsApp',
+    url: 'https://wa.me/8801518679771',
+    iconName: 'MessageCircle',
+  },
+  {
+    id: 'social-4',
+    name: 'Telegram',
+    url: 'https://t.me/Nahidhasan6996',
+    iconName: 'Send',
+  },
+  {
+    id: 'social-5',
+    name: 'LinkedIn',
+    url: '#',
+    iconName: 'Linkedin',
+  },
+  {
+    id: 'social-6',
+    name: 'GitHub',
+    url: '#',
+    iconName: 'Github',
+  },
+  {
+    id: 'social-7',
+    name: 'Dribbble',
+    url: '#',
+    iconName: 'Dribbble',
+  },
+  {
+    id: 'social-8',
+    name: 'Behance',
+    url: '#',
+    iconName: 'Globe',
+  },
+];

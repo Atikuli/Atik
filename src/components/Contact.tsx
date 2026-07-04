@@ -1,8 +1,22 @@
 import { useState, FormEvent } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Facebook, Linkedin, Github, Dribbble, Globe, AlertCircle, X } from 'lucide-react';
-import { personalInfo } from '../data';
+import { 
+  Mail, Phone, MapPin, Send, CheckCircle2, Facebook, Linkedin, Github, 
+  Dribbble, Globe, AlertCircle, X, Instagram, MessageCircle 
+} from 'lucide-react';
+import { personalInfo, socialLinks } from '../data';
 import { motion, AnimatePresence } from 'motion/react';
 import GoogleMap from './GoogleMap';
+
+const iconMap: Record<string, any> = {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Send,
+  Linkedin,
+  Github,
+  Dribbble,
+  Globe
+};
 
 interface Toast {
   id: string;
@@ -362,22 +376,23 @@ export default function Contact() {
             {/* Social Media Links */}
             <div className="bg-[#FAF6EA] border border-charcoal/10 rounded-2xl p-5 text-center flex flex-col items-center space-y-3">
               <span className="text-[10px] font-mono text-muted-dark uppercase tracking-widest font-semibold">Join Me Online</span>
-              <div className="flex gap-3">
-                <a href="#" className="w-9 h-9 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all animate-none" aria-label="Facebook">
-                  <Facebook className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-9 h-9 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all animate-none" aria-label="LinkedIn">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-9 h-9 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all animate-none" aria-label="GitHub">
-                  <Github className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-9 h-9 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all animate-none" aria-label="Dribbble">
-                  <Dribbble className="w-4 h-4" />
-                </a>
-                <a href="#" className="w-9 h-9 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all animate-none" aria-label="Behance">
-                  <Globe className="w-4 h-4" />
-                </a>
+              <div className="flex flex-wrap justify-center gap-2.5">
+                {socialLinks.map((link) => {
+                  const LinkIcon = iconMap[link.iconName] || Globe;
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={link.name}
+                      className="w-9 h-9 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-110 transition-all duration-300"
+                      aria-label={link.name}
+                    >
+                      <LinkIcon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
 

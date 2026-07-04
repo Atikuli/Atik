@@ -1,7 +1,21 @@
 import { useState, useEffect } from 'react';
-import { ArrowUp, Facebook, Linkedin, Github, Dribbble, Globe } from 'lucide-react';
+import { 
+  ArrowUp, Facebook, Linkedin, Github, Dribbble, Globe, 
+  Instagram, MessageCircle, Send 
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { personalInfo } from '../data';
+import { personalInfo, socialLinks } from '../data';
+
+const iconMap: Record<string, any> = {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Send,
+  Linkedin,
+  Github,
+  Dribbble,
+  Globe
+};
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,22 +54,23 @@ export default function Footer() {
         </div>
 
         {/* Middle Social Link Row */}
-        <div className="flex gap-3">
-          <a href="#" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-charcoal/5 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="Facebook">
-            <Facebook className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-charcoal/5 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="LinkedIn">
-            <Linkedin className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-charcoal/5 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="GitHub">
-            <Github className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-charcoal/5 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="Dribbble">
-            <Dribbble className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-charcoal/5 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="Behance">
-            <Globe className="w-3.5 h-3.5" />
-          </a>
+        <div className="flex flex-wrap justify-center gap-2">
+          {socialLinks.map((link) => {
+            const LinkIcon = iconMap[link.iconName] || Globe;
+            return (
+              <a
+                key={link.id}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={link.name}
+                className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-charcoal/5 text-muted-dark hover:text-gold hover:border-gold hover:scale-110 transition-all duration-300"
+                aria-label={link.name}
+              >
+                <LinkIcon className="w-3.5 h-3.5" />
+              </a>
+            );
+          })}
         </div>
 
       </div>

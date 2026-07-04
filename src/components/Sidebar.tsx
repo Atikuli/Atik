@@ -2,10 +2,21 @@ import { useState, useEffect } from 'react';
 import { 
   Home, User, Briefcase, GraduationCap, Palette, Sparkles, Award, 
   Mail, Menu, X, Facebook, Linkedin, Github, Dribbble, Globe,
-  BookOpen, HelpCircle, CreditCard
+  BookOpen, HelpCircle, CreditCard, Instagram, MessageCircle, Send
 } from 'lucide-react';
-import { personalInfo } from '../data';
+import { personalInfo, socialLinks } from '../data';
 import { motion, AnimatePresence } from 'motion/react';
+
+const iconMap: Record<string, any> = {
+  Facebook,
+  Instagram,
+  MessageCircle,
+  Send,
+  Linkedin,
+  Github,
+  Dribbble,
+  Globe
+};
 
 interface SidebarProps {
   activeSection: string;
@@ -145,22 +156,23 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
 
               {/* Social Icons & Copyright */}
               <div className="mt-8 pt-6 border-t border-[#222222]/5">
-                <div className="flex justify-center gap-4 mb-4">
-                  <a href="#" className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="Facebook">
-                    <Facebook className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="LinkedIn">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="GitHub">
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="Dribbble">
-                    <Dribbble className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold transition-all" aria-label="Behance">
-                    <Globe className="w-4 h-4" />
-                  </a>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {socialLinks.map((link) => {
+                    const LinkIcon = iconMap[link.iconName] || Globe;
+                    return (
+                      <a
+                        key={link.id}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={link.name}
+                        className="w-9 h-9 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all"
+                        aria-label={link.name}
+                      >
+                        <LinkIcon className="w-4 h-4" />
+                      </a>
+                    );
+                  })}
                 </div>
                 <p className="text-[10px] text-center text-muted-dark/80 font-mono">© 2026 {personalInfo.displayName}. Rajshahi</p>
               </div>
@@ -246,23 +258,24 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
         </div>
 
         {/* Social Icons & Footer */}
-        <div className="border-t border-[#222222]/5 pt-6">
-          <div className="flex justify-center gap-3.5 mb-4">
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all" aria-label="Facebook">
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all" aria-label="LinkedIn">
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all" aria-label="GitHub">
-              <Github className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all" aria-label="Dribbble">
-              <Dribbble className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 flex items-center justify-center rounded-xl bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-105 transition-all" aria-label="Behance">
-              <Globe className="w-4 h-4" />
-            </a>
+        <div className="border-t border-[#222222]/5 pt-5">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-4">
+            {socialLinks.map((link) => {
+              const LinkIcon = iconMap[link.iconName] || Globe;
+              return (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={link.name}
+                  className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-[#222222]/10 text-muted-dark hover:text-gold hover:border-gold hover:scale-110 transition-all duration-300"
+                  aria-label={link.name}
+                >
+                  <LinkIcon className="w-3.5 h-3.5" />
+                </a>
+              );
+            })}
           </div>
           <p className="text-[10px] text-center text-muted-dark font-mono">© 2026 {personalInfo.displayName}. Rajshahi</p>
         </div>
