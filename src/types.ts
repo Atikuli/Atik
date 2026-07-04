@@ -22,6 +22,7 @@ export interface Skill {
   name: string;
   percentage: number;
   category: 'design' | 'technical' | 'tools';
+  iconName?: string;
 }
 
 export interface Testimonial {

@@ -11,11 +11,9 @@ export const personalInfo = {
   ],
   tagline: 'Creating impactful visual identities and providing professional IT support solutions.',
   about: [
-    "I am Md. Atikul Islam Hamim, a passionate Graphic Designer and IT Support Specialist from Rajshahi, Bangladesh. I am currently studying in the second year (Honours) in the Department of Islamic Studies at Government Bangla College, Dhaka.",
-    "I completed my SSC from Rajshahi Court Academy and my HSC from Metropolitan College.",
-    "Alongside my academic journey, I successfully completed the NSDA IT Support Specialist Level-3 certification, where I developed practical skills in computer hardware, software troubleshooting, networking, operating systems, Microsoft Office, customer support, and technical problem-solving.",
-    "I also work as a graphic designer with experience in logo design, brand identity, social media design, flyer design, banner design, business cards, brochures, and other print and digital marketing materials.",
-    "My goal is to combine creativity and technology to deliver high-quality digital solutions for businesses and individuals."
+    "My name is Md. Atikul Islam Hamim. I am a passionate Graphic Designer and NSDA Certified IT Support Specialist from Rajshahi, Bangladesh.",
+    "Currently, I am studying in the Second Year (Honours) in the Department of Islamic Studies at Government Bangla College, Dhaka. I completed my SSC from Rajshahi Court Academy and HSC from Metropolitan College. To build practical professional skills, I successfully completed two NSDA Level-3 professional training programs from Aerodesk Learning Institute.",
+    "My expertise includes Graphic Design for Freelancing, Brand Identity Design, Print Design, Social Media Design, and Professional IT Support Services including hardware, software, networking, Windows installation, troubleshooting, and technical support. I am passionate about solving technical problems and creating modern visual designs that help businesses grow."
   ],
   email: 'mdatikulislamhamim68@gmail.com',
   phone: '+8801316839703',
@@ -30,21 +28,42 @@ export const personalInfo = {
 };
 
 export const skills: Skill[] = [
-  { name: 'Graphic Design', percentage: 95, category: 'design' },
-  { name: 'Adobe Illustrator', percentage: 95, category: 'tools' },
-  { name: 'Adobe Photoshop', percentage: 92, category: 'tools' },
-  { name: 'Logo Design', percentage: 95, category: 'design' },
-  { name: 'Brand Identity Design', percentage: 92, category: 'design' },
-  { name: 'Social Media Design', percentage: 90, category: 'design' },
-  { name: 'Print Design', percentage: 90, category: 'design' },
-  { name: 'Flyer & Brochure Design', percentage: 90, category: 'design' },
-  { name: 'Business Card Design', percentage: 95, category: 'design' },
-  { name: 'IT Support', percentage: 90, category: 'technical' },
-  { name: 'Computer Troubleshooting', percentage: 90, category: 'technical' },
-  { name: 'Hardware & Software Installation', percentage: 88, category: 'technical' },
-  { name: 'Networking Basics', percentage: 85, category: 'technical' },
-  { name: 'Microsoft Office', percentage: 90, category: 'tools' },
-  { name: 'Customer Support', percentage: 88, category: 'technical' },
+  // =========================
+  // GRAPHIC DESIGN SKILLS
+  // =========================
+  { name: 'Adobe Illustrator', percentage: 95, category: 'design', iconName: 'Feather' },
+  { name: 'Adobe Photoshop', percentage: 92, category: 'design', iconName: 'Layers' },
+  { name: 'Adobe InDesign', percentage: 85, category: 'design', iconName: 'Columns' },
+  { name: 'Logo Design', percentage: 95, category: 'design', iconName: 'Award' },
+  { name: 'Brand Identity Design', percentage: 92, category: 'design', iconName: 'Sparkles' },
+  { name: 'Business Card Design', percentage: 95, category: 'design', iconName: 'Contact' },
+  { name: 'Flyer Design', percentage: 92, category: 'design', iconName: 'Megaphone' },
+  { name: 'Brochure Design', percentage: 90, category: 'design', iconName: 'Book' },
+  { name: 'Banner Design', percentage: 90, category: 'design', iconName: 'Tv' },
+  { name: 'Social Media Design', percentage: 93, category: 'design', iconName: 'Share2' },
+  { name: 'Print Design', percentage: 90, category: 'design', iconName: 'Printer' },
+  { name: 'Packaging Design', percentage: 85, category: 'design', iconName: 'Package' },
+  { name: 'Typography', percentage: 88, category: 'design', iconName: 'Type' },
+  { name: 'Color Theory', percentage: 90, category: 'design', iconName: 'Palette' },
+  { name: 'Layout Design', percentage: 90, category: 'design', iconName: 'Grid' },
+
+  // =========================
+  // IT SUPPORT SKILLS
+  // =========================
+  { name: 'Computer Hardware Troubleshooting', percentage: 92, category: 'technical', iconName: 'Cpu' },
+  { name: 'Computer Software Troubleshooting', percentage: 92, category: 'technical', iconName: 'Terminal' },
+  { name: 'Windows Installation & Configuration', percentage: 95, category: 'technical', iconName: 'Monitor' },
+  { name: 'Microsoft Office Suite', percentage: 95, category: 'technical', iconName: 'Briefcase' },
+  { name: 'Network Troubleshooting', percentage: 88, category: 'technical', iconName: 'Network' },
+  { name: 'LAN & Wi-Fi Configuration', percentage: 88, category: 'technical', iconName: 'Wifi' },
+  { name: 'Printer & Peripheral Support', percentage: 90, category: 'technical', iconName: 'Printer' },
+  { name: 'System Maintenance', percentage: 90, category: 'technical', iconName: 'Settings' },
+  { name: 'Virus & Malware Removal', percentage: 90, category: 'technical', iconName: 'ShieldAlert' },
+  { name: 'Operating System Installation', percentage: 92, category: 'technical', iconName: 'HardDrive' },
+  { name: 'Remote Technical Support', percentage: 88, category: 'technical', iconName: 'Headphones' },
+  { name: 'Customer Support', percentage: 90, category: 'technical', iconName: 'UserCheck' },
+  { name: 'Data Backup & Recovery', percentage: 85, category: 'technical', iconName: 'Database' },
+  { name: 'Basic Cybersecurity', percentage: 82, category: 'technical', iconName: 'Lock' }
 ];
 
 export const services: Service[] = [
@@ -210,10 +229,10 @@ export const educationTimeline: TimelineItem[] = [
     roleOrDegree: 'Bachelor (Honours) - Department of Islamic Studies',
     companyOrInstitution: 'Government Bangla College, Dhaka',
     period: 'Second Year (Running)',
-    description: 'Pursuing honours studies, building valuable communication and analytical skills while actively practicing graphic design and computer support solutions.',
+    description: 'Studying under the Department of Islamic Studies, focusing on academic research, communications, and digital synthesis.',
     highlights: [
-      'Developing rigorous critical writing, research methodologies, and historical analyses.',
-      'Maintaining active digital projects alongside college curricula.'
+      'Department of Islamic Studies',
+      'Second Year (Running)'
     ]
   },
   {
@@ -221,9 +240,9 @@ export const educationTimeline: TimelineItem[] = [
     roleOrDegree: 'Higher Secondary Certificate (HSC)',
     companyOrInstitution: 'Metropolitan College',
     period: 'Completed',
-    description: 'Completed higher secondary education, laying strong foundations in science and academic projects.',
+    description: 'Successfully completed Higher Secondary Certificate studies.',
     highlights: [
-      'Engaged in college science clubs and local computer literacy seminars.'
+      'Completed'
     ]
   },
   {
@@ -231,9 +250,9 @@ export const educationTimeline: TimelineItem[] = [
     roleOrDegree: 'Secondary School Certificate (SSC)',
     companyOrInstitution: 'Rajshahi Court Academy',
     period: 'Completed',
-    description: 'Acquired core general education with excellent visual and mathematical foundations.',
+    description: 'Successfully completed Secondary School Certificate studies.',
     highlights: [
-      'Recognized for academic focus and early interest in digital illustration tools.'
+      'Completed'
     ]
   }
 ];
@@ -258,12 +277,57 @@ export const awardsList: AwardItem[] = [
 export const certificationsList: CertificationItem[] = [
   {
     id: 'cert-1',
-    name: 'IT Support Specialist Level-3',
+    name: 'Graphics Design for Freelancing (Level-3)',
     authority: 'National Skills Development Authority (NSDA), Bangladesh',
     date: 'Completed Successfully',
-    credentialId: 'NSDA-ITSS-L3-2024',
+    credentialId: 'NSDA-GD-L3-CERT',
+    logoUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=120'
+  },
+  {
+    id: 'cert-2',
+    name: 'IT Support Service (Level-3)',
+    authority: 'National Skills Development Authority (NSDA), Bangladesh',
+    date: 'Completed Successfully',
+    credentialId: 'NSDA-ITSS-L3-CERT',
     logoUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=120'
   }
+];
+
+export interface TrainingItem {
+  id: string;
+  title: string;
+  type: string;
+  authority: string;
+  level: string;
+  status: string;
+  institute: string;
+}
+
+export const professionalTraining: TrainingItem[] = [
+  {
+    id: 'train-1',
+    title: 'Graphics Design for Freelancing',
+    type: 'NSDA Certified',
+    authority: 'National Skills Development Authority (NSDA)',
+    level: 'Level-3',
+    status: 'Completed Successfully',
+    institute: 'Aerodesk Learning Institute'
+  },
+  {
+    id: 'train-2',
+    title: 'IT Support Service',
+    type: 'NSDA Certified',
+    authority: 'National Skills Development Authority (NSDA)',
+    level: 'Level-3',
+    status: 'Completed Successfully',
+    institute: 'Aerodesk Learning Institute'
+  }
+];
+
+export const achievementsList = [
+  'NSDA Certified Graphics Design for Freelancing Level-3',
+  'NSDA Certified IT Support Service Level-3',
+  'Successfully completed professional training from Aerodesk Learning Institute'
 ];
 
 export const pricingPackages: PricingPackage[] = [

@@ -3,6 +3,9 @@ import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import About from './components/About';
 import ResumeTimeline from './components/ResumeTimeline';
+import ProfessionalTraining from './components/ProfessionalTraining';
+import Certifications from './components/Certifications';
+import Achievements from './components/Achievements';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
@@ -33,7 +36,7 @@ export default function App() {
   // Unified scroll tracker to automatically highlight sidebar items as user scrolls
   useEffect(() => {
     const sectionIds = [
-      'home', 'about', 'resume', 'skills', 'services', 
+      'home', 'about', 'resume', 'training', 'certifications', 'achievements', 'skills', 'services', 
       'portfolio', 'pricing', 'faq', 'blog', 'testimonials', 'contact'
     ];
     
@@ -86,6 +89,15 @@ export default function App() {
 
           {/* Experience and Education Timelines, Awards, Certifications */}
           <ResumeTimeline />
+
+          {/* Professional Training Section */}
+          <ProfessionalTraining />
+
+          {/* Premium Certifications Section */}
+          <Certifications />
+
+          {/* Achievements Section */}
+          <Achievements />
 
           {/* Skill Matrix and Counters */}
           <Skills />
