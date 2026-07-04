@@ -80,11 +80,12 @@ export default function Lightbox({ project, onClose, onPrev, onNext }: LightboxP
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
               className="max-w-full max-h-full flex items-center justify-center"
             >
-              <img
+              <SafeImage
                 src={project.image}
+                fallbackSrc={project.fallbackImage}
                 alt={project.title}
+                category={project.category}
                 className="max-w-full max-h-[50vh] md:max-h-[80vh] object-contain rounded-2xl shadow-2xl border border-white/10 pointer-events-none select-none"
-                referrerPolicy="no-referrer"
               />
             </motion.div>
           </div>

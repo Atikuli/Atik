@@ -1,3 +1,20 @@
+export interface ProjectCaseStudy {
+  clientType?: string;
+  overview: string;
+  problem: string;
+  solution: string;
+  designProcess: {
+    step: string;
+    title: string;
+    description: string;
+  }[];
+  finalOutcome: string;
+  gallery: string[];
+  technologiesUsed: string[];
+  duration: string;
+  ctaText?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -8,6 +25,7 @@ export interface Project {
   client: string;
   date: string;
   tools: string[];
+  caseStudy?: ProjectCaseStudy;
 }
 
 export interface Service {

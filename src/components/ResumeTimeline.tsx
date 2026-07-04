@@ -1,181 +1,318 @@
-import { experienceTimeline, educationTimeline, awardsList, certificationsList } from '../data';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Briefcase, GraduationCap, Award, ShieldCheck, Calendar, ArrowUpRight } from 'lucide-react';
+import { 
+  GraduationCap, Award, BookOpen, Palette, Cpu, 
+  Calendar, Building2, CheckCircle2, ShieldCheck, 
+  School, Sparkles, Milestone, ArrowRight
+} from 'lucide-react';
+import { useApp } from '../context/AppContext';
+
+interface TimelineItem {
+  id: string;
+  title: { en: string; bn: string };
+  institution: { en: string; bn: string };
+  department?: { en: string; bn: string };
+  period: { en: string; bn: string };
+  type: 'education' | 'training' | 'certification';
+  description: { en: string; bn: string };
+  highlights: { en: string[]; bn: string[] };
+}
+
+const timelineItems: TimelineItem[] = [
+  {
+    id: 'ssc',
+    title: {
+      en: 'Secondary School Certificate (SSC)',
+      bn: 'মাধ্যমিক স্কুল সার্টিফিকেট (এসএসসি)'
+    },
+    institution: {
+      en: 'Rajshahi Court Academy',
+      bn: 'রাজশাহী কোর্ট একাডেমি'
+    },
+    period: {
+      en: 'Completed',
+      bn: 'সম্পন্ন'
+    },
+    type: 'education',
+    description: {
+      en: 'Acquired secondary education with a strong base in science, mathematics, and logical reasoning.',
+      bn: 'বিজ্ঞান, গণিত এবং যুক্তিবিদ্যার দৃঢ় ভিত্তির সাথে সফলভাবে মাধ্যমিক স্কুল সার্টিফিকেট সম্পন্ন করেছেন।'
+    },
+    highlights: {
+      en: ['Science Group Focus', 'Board of Intermediate & Secondary Education, Rajshahi', 'Academic Excellence Foundation'],
+      bn: ['বিজ্ঞান বিভাগ', 'মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ড, রাজশাহী', 'প্রাতিষ্ঠানিক দক্ষতার ভিত্তি']
+    }
+  },
+  {
+    id: 'hsc',
+    title: {
+      en: 'Higher Secondary Certificate (HSC)',
+      bn: 'উচ্চ মাধ্যমিক সার্টিফিকেট (এইচএসসি)'
+    },
+    institution: {
+      en: 'Metropolitan College',
+      bn: 'মেট্রোপলিটন কলেজ'
+    },
+    period: {
+      en: 'Completed',
+      bn: 'সম্পন্ন'
+    },
+    type: 'education',
+    description: {
+      en: 'Successfully completed higher secondary studies, expanding analytical skills and core academic principles.',
+      bn: 'সফলভাবে উচ্চ মাধ্যমিক স্তরের পড়াশোনা সম্পন্ন করেছেন, যা বিশ্লেষণাত্মক দক্ষতা এবং প্রাতিষ্ঠানিক ভিত্তি প্রসারিত করেছে।'
+    },
+    highlights: {
+      en: ['Science Group Curriculum', 'Analytical & Theoretical Studies', 'Symmetric Logical Thinking'],
+      bn: ['বিজ্ঞান বিভাগ কারিকুলাম', 'বিশ্লেষণাত্মক ও তাত্ত্বিক শিক্ষা', 'পদ্ধতিগত ও যুক্তিভিত্তিক চিন্তাভাবনা']
+    }
+  },
+  {
+    id: 'bachelor',
+    title: {
+      en: 'Bachelor (Honours)',
+      bn: 'স্নাতক (সম্মান)'
+    },
+    institution: {
+      en: 'Government Bangla College',
+      bn: 'সরকারি বাংলা কলেজ'
+    },
+    department: {
+      en: 'Department of Islamic Studies',
+      bn: 'ইসলামিক স্টাডিজ বিভাগ'
+    },
+    period: {
+      en: 'Second Year (Running)',
+      bn: '২য় বর্ষ (চলমান)'
+    },
+    type: 'education',
+    description: {
+      en: 'Currently pursuing a Bachelor’s Degree, focusing on academic research, cultural synthesis, and communication frameworks.',
+      bn: 'বর্তমানে ইসলামিক স্টাডিজ বিভাগে স্নাতক (সম্মান) ডিগ্রিতে অধ্যয়নরত, যা প্রাতিষ্ঠানিক গবেষণা ও যোগাযোগ দক্ষতাকে আরও সমৃদ্ধ করছে।'
+    },
+    highlights: {
+      en: ['Department of Islamic Studies', 'Academic Research & Literature Analysis', 'Active Undergraduate Progression'],
+      bn: ['ইসলামিক স্টাডিজ বিভাগ', 'প্রাতিষ্ঠানিক গবেষণা ও সাহিত্য বিশ্লেষণ', 'সক্রিয় স্নাতক স্তরের অগ্রগতি']
+    }
+  },
+  {
+    id: 'graphics',
+    title: {
+      en: 'Graphics Design for Freelancing',
+      bn: 'গ্রাফিক্স ডিজাইন ফর ফ্রিল্যান্সিং'
+    },
+    institution: {
+      en: 'Aerodesk Learning Institute',
+      bn: 'অ্যারোডেস্ক লার্নিং ইনস্টিটিউট'
+    },
+    period: {
+      en: 'NSDA Certified Level-3',
+      bn: 'এনএসডিএ সার্টিফাইড লেভেল-৩'
+    },
+    type: 'certification',
+    description: {
+      en: 'Comprehensive professional training covering visual identity systems, vector assets, color theories, and commercial packaging design under NSDA guidelines.',
+      bn: 'ভিজ্যুয়াল আইডেন্টিটি সিস্টেম, ভেক্টর অ্যাসেট লেআউট, কালার থিওরি এবং বাণিজ্যিক প্যাকেজিং ডিজাইনের ওপর জাতীয় দক্ষতা উন্নয়ন কর্তৃপক্ষ (NSDA) স্বীকৃত পেশাদার লেভেল-৩ সার্টিফিকেশন।'
+    },
+    highlights: {
+      en: ['National Skills Development Authority (NSDA) Certified', 'Aerodesk Learning Institute Alumnus', 'Expertise in Illustrator, Photoshop & Grid layouts'],
+      bn: ['জাতীয় দক্ষতা উন্নয়ন কর্তৃপক্ষ (NSDA) কর্তৃক লেভেল-৩ সার্টিফাইড', 'অ্যারোডেস্ক লার্নিং ইনস্টিটিউট থেকে ট্রেনিং সম্পন্ন', 'ইলাস্ট্রেটর, ফটোশপ এবং গ্রিড লেআউটে বিশেষ পারদর্শিতা']
+    }
+  },
+  {
+    id: 'it-support',
+    title: {
+      en: 'IT Support Service',
+      bn: 'আইটি সাপোর্ট সার্ভিস'
+    },
+    institution: {
+      en: 'Aerodesk Learning Institute',
+      bn: 'অ্যারোডেস্ক লার্নিং ইনস্টিটিউট'
+    },
+    period: {
+      en: 'NSDA Certified Level-3',
+      bn: 'এনএসডিএ সার্টিফাইড লেভেল-৩'
+    },
+    type: 'certification',
+    description: {
+      en: 'Professional validation covering operating systems, hardware configuration, network security routing, and customer support troubleshooting helpdesk.',
+      bn: 'অপারেটিং সিস্টেম সেটআপ, কম্পিউটার হার্ডওয়্যার ডায়াগনস্টিকস, নেটওয়ার্ক সিকিউরিটি এবং পেশাদার আইটি হেল্পডেস্ক ট্রাবলশুটিংয়ের ওপর জাতীয় দক্ষতা উন্নয়ন কর্তৃপক্ষ (NSDA) স্বীকৃত লেভেল-৩ সার্টিফিকেশন।'
+    },
+    highlights: {
+      en: ['National Skills Development Authority (NSDA) Certified', 'Aerodesk Learning Institute Alumnus', 'Hardware Triage, Router Setup & Software Support'],
+      bn: ['জাতীয় দক্ষতা উন্নয়ন কর্তৃপক্ষ (NSDA) কর্তৃক লেভেল-৩ সার্টিফাইড', 'অ্যারোডেস্ক লার্নিং ইনস্টিটিউট থেকে ট্রেনিং সম্পন্ন', 'হার্ডওয়্যার ট্রায়াজ, রাউটার সেটআপ এবং সফটওয়্যার সাপোর্ট']
+    }
+  }
+];
 
 export default function ResumeTimeline() {
+  const { language } = useApp();
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
+  const getIcon = (type: string, id: string) => {
+    switch (id) {
+      case 'ssc':
+        return <BookOpen className="w-5 h-5 text-gold" />;
+      case 'hsc':
+        return <School className="w-5 h-5 text-gold" />;
+      case 'bachelor':
+        return <GraduationCap className="w-5 h-5 text-gold animate-bounce-slow" style={{ animationDuration: '4s' }} />;
+      case 'graphics':
+        return <Palette className="w-5 h-5 text-gold" />;
+      case 'it-support':
+        return <Cpu className="w-5 h-5 text-gold" />;
+      default:
+        return <Award className="w-5 h-5 text-gold" />;
+    }
+  };
+
+  const getBadgeColor = (type: string) => {
+    switch (type) {
+      case 'education':
+        return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20';
+      case 'training':
+        return 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20';
+      case 'certification':
+        return 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20';
+      default:
+        return 'bg-gold/10 text-gold border-gold/25';
+    }
+  };
+
   return (
-    <section id="resume" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 bg-white/30 relative">
-      <div className="max-w-6xl mx-auto">
+    <section 
+      id="resume" 
+      className="py-24 px-6 sm:px-12 lg:px-16 border-t border-charcoal/5 dark:border-white/5 bg-gradient-to-b from-[#FAF6EA]/10 to-white/30 dark:from-[#141414] dark:to-[#111111] relative overflow-hidden text-left"
+    >
+      {/* Background Ambience */}
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto relative z-10">
         
         {/* Section Heading */}
-        <div className="mb-14 text-left">
-          <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold">Chronology</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal mt-1">Experience & Background</h2>
-          <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
+        <div className="mb-16 text-left animate-fade-in" data-aos="fade-up">
+          <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold">
+            {language === 'bn' ? 'ক্রোনোলজি ও শিক্ষাগত ভিত্তি' : 'Chronology & Foundations'}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-charcoal dark:text-cream mt-1 leading-tight tracking-tight">
+            {language === 'bn' ? 'আমার জীবনবৃত্তান্ত টাইমলাইন' : 'Resume Timeline'}
+          </h2>
+          <p className="text-sm text-muted-dark dark:text-gray-400 mt-2 max-w-xl font-sans leading-relaxed">
+            {language === 'bn' 
+              ? 'আমার একাডেমিক শিক্ষা, জাতীয় প্রশিক্ষণ এবং সরকারি লেভেল-৩ সার্টিফিকেশনের সমন্বিত একটি চমৎকার টাইমলাইন।' 
+              : 'A combined master timeline tracing academic degrees, professional trainings, and national level-3 certified qualifications in one elegant vertical path.'}
+          </p>
+          <div className="w-16 h-1.5 bg-gold mt-4 rounded-full" />
         </div>
 
-        {/* Timelines Grid (Experience on Left, Education on Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        {/* Timeline Core Container */}
+        <div className="relative pl-6 sm:pl-12 ml-2 sm:ml-6">
           
-          {/* Experience Timeline */}
-          <div 
-            className="space-y-8"
-            data-aos="fade-right"
-            data-aos-duration="1000"
-          >
-            <div className="flex items-center gap-3 border-b border-charcoal/5 pb-4">
-              <div className="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center">
-                <Briefcase className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-display font-bold text-charcoal">Professional Practice</h3>
-            </div>
+          {/* Vertical animated line track */}
+          <div className="absolute left-0 top-3 bottom-3 w-[2px] bg-gradient-to-b from-gold/70 via-gold/30 to-transparent">
+            {/* Glowing active animation indicator moving down the timeline */}
+            <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-transparent via-gold to-transparent animate-pulse" />
+          </div>
 
-            <div className="relative border-l-2 border-gold/25 pl-6 sm:pl-8 ml-4 space-y-10 text-left">
-              {experienceTimeline.map((item, idx) => (
-                <div
-                  key={item.id}
-                  className="relative"
+          {/* Timeline Items List */}
+          <div className="space-y-12">
+            {timelineItems.map((item, idx) => {
+              const isHovered = hoveredCard === item.id;
+
+              return (
+                <div 
+                  key={item.id} 
+                  className="relative group text-left"
                   data-aos="fade-up"
-                  data-aos-delay={idx * 150}
+                  data-aos-delay={idx * 100}
+                  onMouseEnter={() => setHoveredCard(item.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
                 >
-                  {/* Timeline Node Point */}
-                  <div className="absolute -left-[35px] sm:-left-[43px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-gold shadow-sm flex items-center justify-center z-10" />
-
-                  {/* Period Badge */}
-                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-gold uppercase tracking-wider bg-charcoal px-2.5 py-1 rounded-md mb-2">
-                    <Calendar className="w-3 h-3 text-gold" /> {item.period}
-                  </span>
-
-                  {/* Card Block */}
-                  <div className="bg-white border border-charcoal/5 p-5 sm:p-6 rounded-[1.5rem] shadow-sm hover:shadow-md hover:border-gold/35 transition-all duration-300 relative overflow-hidden group">
-                    <h4 className="font-display font-bold text-base text-charcoal group-hover:text-gold transition-colors duration-300">
-                      {item.roleOrDegree}
-                    </h4>
-                    <p className="text-xs font-mono font-bold text-muted-dark uppercase tracking-wide mt-1">
-                      {item.companyOrInstitution}
-                    </p>
-                    <p className="text-xs text-muted-dark leading-relaxed font-sans font-light mt-3">
-                      {item.description}
-                    </p>
-
-                    {item.highlights && item.highlights.length > 0 && (
-                      <ul className="mt-4 space-y-2">
-                        {item.highlights.map((highlight, hIdx) => (
-                          <li key={hIdx} className="text-[11px] text-charcoal/80 flex items-start gap-2 leading-relaxed">
-                            <span className="text-gold font-bold text-xs shrink-0 mt-0.5">•</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  
+                  {/* Glowing Node Point */}
+                  <div className="absolute -left-[31px] sm:-left-[55px] top-6 w-[14px] h-[14px] sm:w-[18px] sm:h-[18px] rounded-full bg-white dark:bg-[#121212] border-4 border-gold shadow-[0_0_12px_rgba(212,175,55,0.4)] flex items-center justify-center z-10 transition-transform duration-300 group-hover:scale-125">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold" />
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Education Timeline */}
-          <div 
-            className="space-y-8"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-          >
-            <div className="flex items-center gap-3 border-b border-charcoal/5 pb-4">
-              <div className="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center">
-                <GraduationCap className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-display font-bold text-charcoal">Education & Training</h3>
-            </div>
+                  {/* Premium Glassmorphic Card Wrapper */}
+                  <div className="rounded-[2.2rem] border-2 border-gold/15 dark:border-white/10 bg-white/40 dark:bg-[#1a1a1a]/40 backdrop-blur-xl p-6 sm:p-8 shadow-md hover:shadow-xl hover:border-gold transition-all duration-500 relative overflow-hidden flex flex-col md:flex-row gap-6 items-start">
+                    
+                    {/* Top corner gradient accent */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gold/[0.03] rounded-bl-full pointer-events-none group-hover:bg-gold/[0.06] transition-colors" />
 
-            <div className="relative border-l-2 border-gold/25 pl-6 sm:pl-8 ml-4 space-y-10 text-left">
-              {educationTimeline.map((item, idx) => (
-                <div
-                  key={item.id}
-                  className="relative"
-                  data-aos="fade-up"
-                  data-aos-delay={idx * 150}
-                >
-                  {/* Timeline Node Point */}
-                  <div className="absolute -left-[35px] sm:-left-[43px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-gold shadow-sm flex items-center justify-center z-10" />
+                    {/* Timeline Left Icon Frame */}
+                    <div className="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform duration-300 shadow-inner">
+                      {getIcon(item.type, item.id)}
+                    </div>
 
-                  {/* Period Badge */}
-                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-gold uppercase tracking-wider bg-charcoal px-2.5 py-1 rounded-md mb-2">
-                    <Calendar className="w-3 h-3 text-gold" /> {item.period}
-                  </span>
+                    {/* Content Area */}
+                    <div className="flex-1 space-y-3">
+                      
+                      {/* Meta Tags Row */}
+                      <div className="flex flex-wrap gap-2 items-center">
+                        <span className={`text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${getBadgeColor(item.type)}`}>
+                          {item.type === 'education' ? (language === 'bn' ? 'শিক্ষা' : 'Education') : (language === 'bn' ? 'সার্টিফিকেশন' : 'Credential')}
+                        </span>
+                        
+                        <span className="text-[9px] font-mono text-muted-dark dark:text-gray-400 px-2.5 py-1 rounded-full bg-charcoal/5 dark:bg-white/5 border border-charcoal/5 dark:border-white/5 flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-gold shrink-0" />
+                          {language === 'bn' ? item.period.bn : item.period.en}
+                        </span>
+                      </div>
 
-                  {/* Card Block */}
-                  <div className="bg-white border border-charcoal/5 p-5 sm:p-6 rounded-[1.5rem] shadow-sm hover:shadow-md hover:border-gold/35 transition-all duration-300 relative overflow-hidden group">
-                    <h4 className="font-display font-bold text-base text-charcoal group-hover:text-gold transition-colors duration-300">
-                      {item.roleOrDegree}
-                    </h4>
-                    <p className="text-xs font-mono font-bold text-muted-dark uppercase tracking-wide mt-1">
-                      {item.companyOrInstitution}
-                    </p>
-                    <p className="text-xs text-muted-dark leading-relaxed font-sans font-light mt-3">
-                      {item.description}
-                    </p>
+                      {/* Main Title */}
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-display font-black text-charcoal dark:text-cream leading-tight tracking-tight group-hover:text-gold transition-colors duration-300">
+                          {language === 'bn' ? item.title.bn : item.title.en}
+                        </h3>
+                        
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs font-semibold text-charcoal/80 dark:text-gray-300 mt-1">
+                          <span className="flex items-center gap-1">
+                            <Building2 className="w-3.5 h-3.5 text-gold shrink-0" />
+                            {language === 'bn' ? item.institution.bn : item.institution.en}
+                          </span>
+                          
+                          {item.department && (
+                            <>
+                              <span className="hidden sm:inline text-charcoal/40 dark:text-white/20">|</span>
+                              <span className="text-muted-dark dark:text-gray-400 font-mono text-[11px] uppercase tracking-wide">
+                                {language === 'bn' ? item.department.bn : item.department.en}
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
 
-                    {item.highlights && item.highlights.length > 0 && (
-                      <ul className="mt-4 space-y-2">
-                        {item.highlights.map((highlight, hIdx) => (
-                          <li key={hIdx} className="text-[11px] text-charcoal/80 flex items-start gap-2 leading-relaxed">
-                            <span className="text-gold font-bold text-xs shrink-0 mt-0.5">•</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                      {/* Main Description */}
+                      <p className="text-xs sm:text-sm text-charcoal/80 dark:text-gray-300 leading-relaxed font-sans font-light">
+                        {language === 'bn' ? item.description.bn : item.description.en}
+                      </p>
+
+                      {/* Bullet Highlights */}
+                      {item.highlights && (
+                        <div className="pt-2 border-t border-charcoal/5 dark:border-white/5 space-y-2">
+                          <span className="text-[9px] font-mono uppercase font-bold tracking-wider text-gold block">
+                            {language === 'bn' ? 'গুরুত্বপূর্ণ হাইলাইটস' : 'Key Milestones / Focus Areas'}
+                          </span>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] sm:text-xs text-charcoal/70 dark:text-gray-400 font-sans font-normal">
+                            {(language === 'bn' ? item.highlights.bn : item.highlights.en).map((hl, hIdx) => (
+                              <li key={hIdx} className="flex items-start gap-1.5 leading-snug">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                                <span>{hl}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                    </div>
+
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-        </div>
-
-        {/* Awards & Certifications Combined Block */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 pt-16 border-t border-charcoal/5 text-left">
-          
-          {/* Awards Column */}
-          <div className="space-y-6">
-            <h4 className="font-display font-bold text-lg text-charcoal flex items-center gap-2">
-              <Award className="w-5 h-5 text-gold shrink-0" /> Honors & Awards
-            </h4>
-            <div className="space-y-4">
-              {awardsList.map((award) => (
-                <div key={award.id} className="bg-white p-5 rounded-2xl border border-charcoal/5 shadow-sm hover:shadow-md transition-shadow relative">
-                  <span className="absolute top-5 right-5 text-xs font-mono font-bold text-gold">{award.year}</span>
-                  <h5 className="font-display font-bold text-sm text-charcoal pr-12">{award.title}</h5>
-                  <p className="text-[10px] font-mono uppercase text-muted-dark mt-1">{award.issuer}</p>
-                  <p className="text-xs text-muted-dark font-sans font-light mt-2.5 leading-relaxed">{award.description}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications Column */}
-          <div className="space-y-6">
-            <h4 className="font-display font-bold text-lg text-charcoal flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-gold shrink-0" /> Certified Credentials
-            </h4>
-            <div className="space-y-4">
-              {certificationsList.map((cert) => (
-                <div key={cert.id} className="bg-white p-5 rounded-2xl border border-charcoal/5 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-gold/30 transition-all duration-300 flex items-start gap-4 group cursor-pointer">
-                  <div className="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h5 className="font-display font-bold text-sm text-charcoal leading-tight">{cert.name}</h5>
-                    <p className="text-[10px] font-mono uppercase text-muted-dark mt-1">{cert.authority} • {cert.date}</p>
-                    {cert.credentialId && (
-                      <span className="inline-block bg-[#FAF6EA] border border-charcoal/10 text-[9px] font-mono px-2 py-0.5 rounded text-charcoal mt-2.5">
-                        License: {cert.credentialId}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
 
         </div>

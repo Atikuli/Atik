@@ -2,12 +2,13 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import CoreExpertise from '../components/CoreExpertise';
 import ResumeTimeline from '../components/ResumeTimeline';
-import ProfessionalTraining from '../components/ProfessionalTraining';
 import Certifications from '../components/Certifications';
+import WhyHireMe from '../components/WhyHireMe';
 import Achievements from '../components/Achievements';
 import Skills from '../components/Skills';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
+import ProjectCaseStudies from '../components/ProjectCaseStudies';
 import Stats from '../components/Stats';
 import FAQ from '../components/FAQ';
 import Testimonials from '../components/Testimonials';
@@ -29,11 +30,11 @@ export default function Home() {
       {/* Experience and Education Timelines, Awards, Certifications */}
       <ResumeTimeline />
 
-      {/* Professional Training Section */}
-      <ProfessionalTraining />
-
       {/* Premium Certifications Section */}
       <Certifications />
+
+      {/* Why Hire Me Section */}
+      <WhyHireMe />
 
       {/* Achievements Section */}
       <Achievements />
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* Dynamic Portfolio and Lightbox */}
       <Portfolio />
+
+      {/* Project Case Studies - Deep Dive Analysis */}
+      <ProjectCaseStudies />
 
       {/* Counters block */}
       <Stats />

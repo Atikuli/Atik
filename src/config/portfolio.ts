@@ -343,7 +343,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Complete visual brand architecture, custom logos, elegant business stationary, and premium corporate guidelines.',
       client: 'Freelance Client',
       date: 'February 2026',
-      tools: ['Adobe Illustrator', 'Photoshop', 'Typography Design']
+      tools: ['Adobe Illustrator', 'Photoshop', 'Typography Design'],
+      caseStudy: {
+        clientType: 'Creative Professional Startup',
+        overview: 'Developed a comprehensive, high-contrast, minimalist visual identity system to establish a recognizable corporate presence.',
+        problem: 'The client had no existing brand guidelines, leading to inconsistent marketing visuals and messaging across social media channels.',
+        solution: 'Engineered a unified visual system with an elegant slate color scheme, robust typography pairings, and ready-to-use templates.',
+        designProcess: [
+          { step: '01', title: 'Research & Moodboard', description: 'Analyzed competitor visual schemes and defined the corporate design direction.' },
+          { step: '02', title: 'Vector Grid Layout', description: 'Created mathematically symmetrical logos utilizing standard vector grids.' },
+          { step: '03', title: 'Stationery & Collateral', description: 'Applied brand marks to dual-sided premium business cards and flyer headers.' }
+        ],
+        finalOutcome: 'A highly polished, print-ready and digital visual standard that increased consistent brand communication across multiple platforms.',
+        gallery: ['https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Adobe Illustrator', 'Adobe Photoshop', 'Swiss Typography'],
+        duration: '3 Weeks',
+        ctaText: 'Build Your Brand Identity'
+      }
     },
     {
       id: 'project-2',
@@ -354,7 +370,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Sophisticated geometric vector marks designed for absolute clarity, symmetry, and memorability across physical & digital platforms.',
       client: 'In-House Showcase',
       date: 'April 2026',
-      tools: ['Grid Mathematics', 'Adobe Illustrator', 'Vector Art']
+      tools: ['Grid Mathematics', 'Adobe Illustrator', 'Vector Art'],
+      caseStudy: {
+        clientType: 'Corporate Brand Showcase',
+        overview: 'A series of mathematically constructed, scalable geometric logos showcasing clean visual layouts and clever negative space.',
+        problem: 'Many modern logos lose readability at small resolutions or in single-color formats, failing in versatile branding.',
+        solution: 'Created vector marks with precise grids, high contrast, and robust shapes to maintain maximum legibility down to 16px.',
+        designProcess: [
+          { step: '01', title: 'Sketching Geometry', description: 'Drafted multiple concept grids on paper with a focus on symmetry and balance.' },
+          { step: '02', title: 'Vector Construction', description: 'Translated sketches into pixel-perfect digital paths in Adobe Illustrator.' },
+          { step: '03', title: 'Scalability Testing', description: 'Tested visual clarity in diverse formats including app icons, debossed leather, and large banners.' }
+        ],
+        finalOutcome: 'A versatile asset collection featuring memorable marks suitable for modern tech companies and premium startups.',
+        gallery: ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Grid Mathematics', 'Adobe Illustrator', 'Vector Optimization'],
+        duration: '2 Weeks',
+        ctaText: 'Get a Unique Custom Logo'
+      }
     },
     {
       id: 'project-3',
@@ -365,7 +397,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'High-end layout structure incorporating striking layouts, Swiss grid systems, and clean vector accents.',
       client: 'Rajshahi Local Event',
       date: 'December 2025',
-      tools: ['Layout Design', 'Illustrator', 'Swiss Typography']
+      tools: ['Layout Design', 'Illustrator', 'Swiss Typography'],
+      caseStudy: {
+        clientType: 'Event Organizers',
+        overview: 'Designed a high-impact typographic poster and promotional flyer for a local creative community gathering.',
+        problem: 'Standard flyers lacked clear visual hierarchy, resulting in low audience engagement and cluttered information.',
+        solution: 'Utilized a rigid Swiss grid system, bold Sans-serif display fonts, and strategic negative space to guide the reader\'s eye smoothly.',
+        designProcess: [
+          { step: '01', title: 'Information Hierarchy', description: 'Structured event details from highest priority (Title, Date) to lowest.' },
+          { step: '02', title: 'Grid Alignment', description: 'Laid out text blocks on an 8-column baseline grid for strict structural alignment.' },
+          { step: '03', title: 'Print Prep', description: 'Configured prepress parameters including high-resolution PDF exports, trim lines, and bleed margins.' }
+        ],
+        finalOutcome: 'A striking promotional layout that significantly improved event registration and was praised for its layout design.',
+        gallery: ['https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Layout Design', 'Adobe Illustrator', 'Swiss Typography'],
+        duration: '1 Week',
+        ctaText: 'Design a High-Impact Flyer'
+      }
     },
     {
       id: 'project-4',
@@ -376,7 +424,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Eco-conscious minimal container layouts and exterior vector patterns engineered for a high-end shelf-ready visual impact.',
       client: 'Concept Design',
       date: 'January 2026',
-      tools: ['Package Dielines', 'Photoshop Mockup', 'Vector Art']
+      tools: ['Package Dielines', 'Photoshop Mockup', 'Vector Art'],
+      caseStudy: {
+        clientType: 'Retail Organic Brand',
+        overview: 'Developed eco-friendly, modern packaging dielines and sleek product container labels focusing on retail aesthetic.',
+        problem: 'Existing retail packaging on the shelves relied on noisy, over-saturated designs, causing brand dilution.',
+        solution: 'Introduced clean visual branding with earthy, muted colors, elegant typography, and a prominent brand identity focus.',
+        designProcess: [
+          { step: '01', title: 'Dieline Blueprinting', description: 'Designed custom structural box blueprints with precise cuts and folding margins.' },
+          { step: '02', title: 'Surface Graphic Layout', description: 'Mapped out minimal graphic assets and mandatory product details.' },
+          { step: '03', title: '3D Mockup Mapping', description: 'Projected vector maps onto high-fidelity 3D models in Photoshop to test visual layouts.' }
+        ],
+        finalOutcome: 'A premium product package styling that commands attention on modern store shelves through structural minimalism.',
+        gallery: ['https://images.unsplash.com/photo-1608248597481-496100c80836?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Package Dielines', 'Adobe Photoshop', 'Vector Art'],
+        duration: '2 Weeks',
+        ctaText: 'Premium Packaging Design'
+      }
     },
     {
       id: 'project-5',
@@ -387,7 +451,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Cohesive vector layouts for Instagram post grids, promotional banners, Facebook covers, and carousel templates.',
       client: 'Brand Promotion Project',
       date: 'May 2026',
-      tools: ['Photoshop Templates', 'Vector Elements', 'Color Harmony']
+      tools: ['Photoshop Templates', 'Vector Elements', 'Color Harmony'],
+      caseStudy: {
+        clientType: 'E-Commerce Fashion Retailer',
+        overview: 'Created a cohesive set of social media banner headers, carousel templates, and post grids designed to boost online reach.',
+        problem: 'Inconsistent post formats and mismatching color themes on Instagram and Facebook weakened brand authority.',
+        solution: 'Crafted a reusable visual kit with structured templates, pre-defined typography scales, and a unified color scheme.',
+        designProcess: [
+          { step: '01', title: 'Platform Research', description: 'Determined optimal visual dimensions and layouts for story, post, and cover sizes.' },
+          { step: '02', title: 'Style Guide Definition', description: 'Settled on color harmony rules and custom typography layout blocks.' },
+          { step: '03', title: 'Template Assembly', description: 'Built fully-editable Adobe Photoshop files for streamlined client updates.' }
+        ],
+        finalOutcome: 'A versatile visual system that increased customer engagement and gave the brand a premium digital look.',
+        gallery: ['https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Photoshop Templates', 'Vector Elements', 'Color Harmony'],
+        duration: '10 Days',
+        ctaText: 'Level Up Your Social Media'
+      }
     },
     {
       id: 'project-6',
@@ -398,7 +478,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Double-sided slate board business card design featuring gold foil stamp files, elegant trim margins, and precise typography.',
       client: 'Professional Networking',
       date: 'March 2026',
-      tools: ['Print Preparation', 'Illustrator Vectors', 'Prepress Setup']
+      tools: ['Print Preparation', 'Illustrator Vectors', 'Prepress Setup'],
+      caseStudy: {
+        clientType: 'Corporate Executives',
+        overview: 'Double-sided, slate-colored business card layout featuring gold foil stamping files and luxury typographic spacing.',
+        problem: 'Standard cards looked generic and failed to leave a lasting professional impression during networking events.',
+        solution: 'Designed cards utilizing generous negative space, sophisticated typography, and dedicated layers for spot UV / foil effects.',
+        designProcess: [
+          { step: '01', title: 'Typography Sizing', description: 'Optimized readability with small-scale typographic elements and balanced spacing.' },
+          { step: '02', title: 'Texture Masking', description: 'Created separate high-contrast alignment masks for debossing and foil prints.' },
+          { step: '03', title: 'Prepress Alignment', description: 'Set perfect trim lines, bleed margins, and safety zones to ensure clean cutting.' }
+        ],
+        finalOutcome: 'A physical networking asset that feels premium to touch and expresses solid, corporate professionalism.',
+        gallery: ['https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Print Preparation', 'Adobe Illustrator', 'Prepress Setup'],
+        duration: '5 Days',
+        ctaText: 'Design a Custom Business Card'
+      }
     },
     {
       id: 'project-7',
@@ -409,7 +505,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Corporate booklets, symmetric tri-folds, and multipage annual catalogs organized on a meticulous typographic system.',
       client: 'Corporate Partner',
       date: 'November 2025',
-      tools: ['InDesign', 'Illustrator', 'Grid Systems']
+      tools: ['InDesign', 'Illustrator', 'Grid Systems'],
+      caseStudy: {
+        clientType: 'Business Consulting Firm',
+        overview: 'Designed a multi-page tri-fold corporate brochure and portfolio booklet organized on a strict grid structure.',
+        problem: 'Information about services and corporate values was poorly organized, making sales pitches confusing.',
+        solution: 'Established a logical layout flow using a multi-column grid, keeping copy concise and imagery prominent.',
+        designProcess: [
+          { step: '01', title: 'Page Flatplan', description: 'Mapped out content sections page-by-page to establish an intuitive reading sequence.' },
+          { step: '02', title: 'Grid Setup', description: 'Set up a consistent 3-column system in Adobe InDesign to balance text and visuals.' },
+          { step: '03', title: 'Typographic Style', description: 'Applied hierarchical character and paragraph styles for uniform presentation.' }
+        ],
+        finalOutcome: 'A neat, publication-grade brochure that functions as an effective physical sales representative.',
+        gallery: ['https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Adobe InDesign', 'Adobe Illustrator', 'Grid Systems'],
+        duration: '2 Weeks',
+        ctaText: 'Design a Sleek Brochure'
+      }
     },
     {
       id: 'project-8',
@@ -420,7 +532,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Large-scale trade show banner layouts and promotional canvas displays styled with high-contrast luxury vector lines.',
       client: 'Commercial Sponsor',
       date: 'January 2026',
-      tools: ['Vector Art', 'Prepress Printing', 'Large Scale Setup']
+      tools: ['Vector Art', 'Prepress Printing', 'Large Scale Setup'],
+      caseStudy: {
+        clientType: 'Technology Enterprise',
+        overview: 'Large-format high-visibility backdrop and roll-up banners designed for a national technology trade show.',
+        problem: 'Low-resolution assets or poor contrast on large backdrops can cause blurry prints or unreadable text from a distance.',
+        solution: 'Engineered clean, high-resolution vector assets and selected high-contrast color pairings for maximum long-distance visibility.',
+        designProcess: [
+          { step: '01', title: 'Scale Planning', description: 'Calculated precise aspect ratios and physical dimensions for large-scale print production.' },
+          { step: '02', title: 'Vector Branding', description: 'Constructed brand-compliant graphics that remain infinitely scalable without blurriness.' },
+          { step: '03', title: 'Color Calibration', description: 'Converted workspace profiles to CMYK to guarantee accurate physical print reproduction.' }
+        ],
+        finalOutcome: 'A commanding trade show banner that stood out at the exhibition hall and drew significant traffic.',
+        gallery: ['https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Vector Art', 'Prepress Printing', 'Large Scale Setup'],
+        duration: '1 Week',
+        ctaText: 'Design Large-Format Banners'
+      }
     },
     {
       id: 'project-9',
@@ -431,7 +559,23 @@ export const portfolioConfig: PortfolioConfig = {
       description: 'Complete architecture deployment for small business setups, including router security configuration, LAN cabling, backup systems, and print servers.',
       client: 'Corporate Branch Office',
       date: 'March 2026',
-      tools: ['Network Routing', 'Backup Recovery', 'Sys Diagnosis']
+      tools: ['Network Routing', 'Backup Recovery', 'Sys Diagnosis'],
+      caseStudy: {
+        clientType: 'Local Business Office',
+        overview: 'Structured small business network and hardware setup, including secure Wi-Fi router planning, LAN wiring, backup systems, and printer servers.',
+        problem: 'Slow network speeds, frequent IP conflicts, and lack of reliable backups disrupted daily office operations.',
+        solution: 'Upgraded router security, deployed a local file backup server, configured static IP schemes, and resolved driver conflicts.',
+        designProcess: [
+          { step: '01', title: 'Site Inspection', description: 'Audited existing network cables, wireless signal strength, and hardware inventory.' },
+          { step: '02', title: 'Infrastructure Wiring', description: 'Laid out solid LAN cables and optimized Wi-Fi access point coordinates.' },
+          { step: '03', title: 'OS & Security Deployment', description: 'Performed clean Windows installations, installed essential software suites, and configured firewall settings.' }
+        ],
+        finalOutcome: 'A fast, reliable, and secure IT setup that boosted office productivity with zero downtime.',
+        gallery: ['https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800'],
+        technologiesUsed: ['Network Routing', 'Backup Recovery', 'System Diagnosis'],
+        duration: '2 Weeks',
+        ctaText: 'Get Professional IT Support'
+      }
     }
   ],
 

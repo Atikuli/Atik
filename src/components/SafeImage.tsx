@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
 import { ImageOff, Sparkles } from 'lucide-react';
 
 interface SafeImageProps {
@@ -12,11 +11,24 @@ interface SafeImageProps {
 }
 
 export default function SafeImage({ src, fallbackSrc, alt, className = '', category = 'branding', loading = 'lazy' }: SafeImageProps) {
-  const [loadState, setLoadState] = useState<'primary' | 'fallback' | 'vector'>('primary');
+  const [loadState, setLoadState] = useState<'primary' | 'fallback' | 'vector'>(() => {
+    if (!src || src.trim() === '') {
+      return (fallbackSrc && fallbackSrc.trim() !== '') ? 'fallback' : 'vector';
+    }
+    return 'primary';
+  });
   const [isHovered, setIsHovered] = useState(false);
 
+  useEffect(() => {
+    if (!src || src.trim() === '') {
+      setLoadState((fallbackSrc && fallbackSrc.trim() !== '') ? 'fallback' : 'vector');
+    } else {
+      setLoadState('primary');
+    }
+  }, [src, fallbackSrc]);
+
   const handlePrimaryError = () => {
-    if (fallbackSrc) {
+    if (fallbackSrc && fallbackSrc.trim() !== '') {
       setLoadState('fallback');
     } else {
       setLoadState('vector');
@@ -27,7 +39,7 @@ export default function SafeImage({ src, fallbackSrc, alt, className = '', categ
     setLoadState('vector');
   };
 
-  if (loadState === 'primary') {
+  if (loadState === 'primary' && src && src.trim() !== '') {
     return (
       <img
         src={src}
@@ -40,7 +52,7 @@ export default function SafeImage({ src, fallbackSrc, alt, className = '', categ
     );
   }
 
-  if (loadState === 'fallback') {
+  if (loadState === 'fallback' && fallbackSrc && fallbackSrc.trim() !== '') {
     return (
       <img
         src={fallbackSrc}
