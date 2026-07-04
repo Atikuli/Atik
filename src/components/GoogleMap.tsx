@@ -101,10 +101,10 @@ export default function GoogleMap() {
             href={mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-gold hover:bg-[#FAF6EA] text-charcoal rounded-xl font-semibold text-xs transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md hover:shadow-gold/20 shrink-0 group-hover:scale-[1.03]"
+            className="px-4 py-2.5 bg-gold hover:bg-[#FAF6EA] text-charcoal rounded-xl font-bold text-xs transition-all duration-300 flex items-center justify-center gap-1.5 shadow-md hover:shadow-gold/20 shrink-0 group-hover:scale-[1.03]"
           >
-            Open Map View
-            <ExternalLink className="w-3 h-3" />
+            View on Google Maps
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
 
         </div>

@@ -1,28 +1,22 @@
 import { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
-import Hero from './components/Hero';
-import About from './components/About';
-import ResumeTimeline from './components/ResumeTimeline';
-import ProfessionalTraining from './components/ProfessionalTraining';
-import Certifications from './components/Certifications';
-import Achievements from './components/Achievements';
-import Skills from './components/Skills';
-import Services from './components/Services';
-import Portfolio from './components/Portfolio';
-import Clients from './components/Clients';
-import Testimonials from './components/Testimonials';
-import Stats from './components/Stats';
-import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
-import BlogPreview from './components/BlogPreview';
-import CallToAction from './components/CallToAction';
-import Contact from './components/Contact';
+import Home from './pages/Home';
 import Footer from './components/Footer';
 import AOS from 'aos';
 import { MouseSpotlight } from './components/AnimatedElements';
+import LoadingScreen from './components/LoadingScreen';
+import CustomCursor from './components/CustomCursor';
+import { ScrollProgressBar, BackToTop } from './components/ScrollFeatures';
+import AIAssistant from './components/AIAssistant';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !sessionStorage.getItem('portfolio-session-loaded');
+    }
+    return true;
+  });
 
   // Initialize AOS (Animate On Scroll)
   useEffect(() => {
@@ -37,7 +31,7 @@ export default function App() {
   useEffect(() => {
     const sectionIds = [
       'home', 'about', 'resume', 'training', 'certifications', 'achievements', 'skills', 'services', 
-      'portfolio', 'pricing', 'faq', 'blog', 'testimonials', 'contact'
+      'portfolio', 'faq', 'testimonials', 'contact'
     ];
     
     const observers = sectionIds.map((id) => {
@@ -69,75 +63,41 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF6EA] text-charcoal font-sans relative antialiasedSelection select-none selection:bg-gold selection:text-charcoal selection:font-bold">
-      {/* Interactive Mouse Tracking Spotlight */}
-      <MouseSpotlight />
+    <>
+      {/* Premium Loading Screen */}
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
-      {/* Fixed Sticky Sidebar / Mobile Navigation Header */}
-      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <div className="min-h-screen bg-cream dark:bg-[#121212] text-charcoal dark:text-cream font-sans relative antialiasedSelection select-none selection:bg-gold selection:text-charcoal selection:font-bold transition-colors duration-300">
+        {/* Scroll Progress Bar */}
+        <ScrollProgressBar />
 
-      {/* Main Right Scrolling Container (offset by left sidebar width exactly 260px on large displays) */}
-      <main className="lg:pl-[260px] min-h-screen flex flex-col justify-between">
-        
-        {/* Scroll Content Block */}
-        <div className="flex-1 w-full max-w-7xl mx-auto">
-          {/* Hero Landing */}
-          <Hero />
+        {/* Premium Custom Cursor */}
+        <CustomCursor />
 
-          {/* Biography and Professional Grid */}
-          <About />
+        {/* Interactive Mouse Tracking Spotlight */}
+        <MouseSpotlight />
 
-          {/* Experience and Education Timelines, Awards, Certifications */}
-          <ResumeTimeline />
+        {/* Fixed Sticky Sidebar / Mobile Navigation Header */}
+        <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
 
-          {/* Professional Training Section */}
-          <ProfessionalTraining />
+        {/* Main Right Scrolling Container (offset by left sidebar width exactly 260px on large displays) */}
+        <main className="lg:pl-[260px] min-h-screen flex flex-col justify-between">
+          
+          {/* Scroll Content Block */}
+          <Home />
 
-          {/* Premium Certifications Section */}
-          <Certifications />
+          {/* Global layout Footer */}
+          <Footer />
+          
+        </main>
 
-          {/* Achievements Section */}
-          <Achievements />
+        {/* Back to Top Floating Button */}
+        <BackToTop />
 
-          {/* Skill Matrix and Counters */}
-          <Skills />
-
-          {/* Service Grid with Gradient borders */}
-          <Services />
-
-          {/* Dynamic Portfolio and Lightbox */}
-          <Portfolio />
-
-          {/* Continuous scrolling client brands */}
-          <Clients />
-
-          {/* Counters block */}
-          <Stats />
-
-          {/* Pricing packages of design/IT setups */}
-          <Pricing />
-
-          {/* Frequently Asked Questions accordion */}
-          <FAQ />
-
-          {/* Insights logbook preview */}
-          <BlogPreview />
-
-          {/* Testimonial slider of glass cards */}
-          <Testimonials />
-
-          {/* Premium Call to Action */}
-          <CallToAction />
-
-          {/* Interactive Contact and map */}
-          <Contact />
-        </div>
-
-        {/* Global layout Footer */}
-        <Footer />
-        
-      </main>
-    </div>
+        {/* Floating AI Assistant Widget */}
+        <AIAssistant />
+      </div>
+    </>
   );
 }
 

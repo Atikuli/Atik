@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Award, Trophy, Compass, ArrowUpRight } from 'lucide-react';
+import { Award, ShieldCheck, GraduationCap, Briefcase, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export default function Achievements() {
   const achievements = [
@@ -11,12 +11,22 @@ export default function Achievements() {
     {
       title: 'NSDA Certified IT Support Service Level-3',
       description: 'Government approved and certified credential covering enterprise tech diagnostics, networking, and system config.',
-      icon: Trophy,
+      icon: ShieldCheck,
     },
     {
       title: 'Successfully completed professional training from Aerodesk Learning Institute',
       description: 'Comprehensive, intensive hands-on training covering modern design pipelines and expert IT systems support.',
-      icon: Compass,
+      icon: GraduationCap,
+    },
+    {
+      title: 'Available for Freelance Projects',
+      description: 'Highly adaptable and ready to cooperate on custom design layouts, print catalogs, or IT systems troubleshooting.',
+      icon: Briefcase,
+    },
+    {
+      title: 'Passionate Graphic Designer & IT Support Specialist',
+      description: 'Bringing double-discipline advantages to every project to combine beautiful design with fully optimized execution.',
+      icon: Sparkles,
     }
   ];
 
@@ -32,7 +42,7 @@ export default function Achievements() {
         </div>
 
         {/* Bento/Column grid list */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {achievements.map((ach, index) => {
             const IconComponent = ach.icon;
             return (

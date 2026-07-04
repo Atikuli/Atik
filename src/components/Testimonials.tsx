@@ -1,145 +1,193 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { testimonials } from '../data';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import SafeImage from './SafeImage';
 
-// Import Swiper React components and modules
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-// Import Swiper styles
-import 'swiper/css';
-
 export default function Testimonials() {
-  const [swiper, setSwiper] = useState<any>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const handlePrev = () => {
+    setIsAutoPlaying(false);
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleNext = () => {
+    setIsAutoPlaying(false);
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handleDotClick = (index: number) => {
+    setIsAutoPlaying(false);
+    setDirection(index > currentIndex ? 1 : -1);
+    setCurrentIndex(index);
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
+
+  // Slide transition configurations for premium horizontal movement
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 120 : -120,
+      opacity: 0,
+      scale: 0.96
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        x: { type: 'spring', stiffness: 280, damping: 28 },
+        opacity: { duration: 0.3 },
+        scale: { duration: 0.3 }
+      }
+    },
+    exit: (dir: number) => ({
+      x: dir < 0 ? 120 : -120,
+      opacity: 0,
+      scale: 0.96,
+      transition: {
+        x: { type: 'spring', stiffness: 280, damping: 28 },
+        opacity: { duration: 0.25 },
+        scale: { duration: 0.25 }
+      }
+    })
+  };
 
   return (
-    <section id="testimonials" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 relative overflow-hidden">
+    <section id="testimonials" className="py-24 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 relative overflow-hidden bg-gradient-to-b from-transparent to-[#FAF6EA]/10">
       
       {/* 3D Ambient Blur Background Glows */}
-      <div className="absolute top-1/4 left-1/10 w-72 h-72 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/12 w-80 h-80 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/12 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         
         {/* Section Heading */}
-        <div className="mb-14 text-left" data-aos="fade-up">
-          <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold">Endorsements</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal mt-1">Client Reviews</h2>
-          <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
+        <div className="mb-16 text-center">
+          <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold bg-gold/10 px-3.5 py-1.5 rounded-full">Endorsements</span>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-charcoal mt-3 tracking-tight">Client Reviews</h2>
+          <div className="w-12 h-1 bg-gold mx-auto mt-5 rounded-full" />
         </div>
 
         {/* Swiper Slider Wrapper */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto min-h-[380px] sm:min-h-[320px] flex flex-col justify-between">
           
           {/* Quote Watermark Icon */}
-          <div className="absolute -top-10 -left-6 text-gold/10 pointer-events-none z-0">
-            <Quote className="w-28 h-28 transform -scale-x-100" />
+          <div className="absolute -top-12 -left-8 text-gold/5 pointer-events-none z-0">
+            <Quote className="w-36 h-36 transform -scale-x-100" />
           </div>
 
-          {/* SwiperJS Instance */}
-          <div className="relative z-10">
-            <Swiper
-              onSwiper={setSwiper}
-              modules={[Autoplay, Pagination, Navigation]}
-              autoplay={{
-                delay: 6000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-              }}
-              pagination={{
-                clickable: true,
-                el: '#testimonials-pagination',
-                bulletClass: 'custom-bullet',
-                bulletActiveClass: 'custom-bullet-active',
-              }}
-              spaceBetween={30}
-              slidesPerView={1}
-              loop={true}
-              className="w-full"
-            >
-              {testimonials.map((testimonial) => (
-                <SwiperSlide key={testimonial.id} className="py-4">
-                  <motion.div
-                    className="animate-float-y glass-card rounded-[2.5rem] p-8 sm:p-12 shadow-[0_25px_50px_-12px_rgba(244,178,35,0.18)] border border-white/80 w-full relative z-10 transition-shadow duration-300 hover:shadow-[0_30px_60px_-10px_rgba(244,178,35,0.25)]"
-                    id={`testimonial-slide-${testimonial.id}`}
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                      
-                      {/* Left Column: Avatar & Rating */}
-                      <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-                        
-                        {/* Circle Avatar */}
-                        <div className="relative w-20 h-20">
-                          <div className="absolute inset-0 rounded-full bg-gold/25 blur-md animate-pulse" />
-                          <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gold/40 p-0.5 bg-white">
-                            <SafeImage 
-                              src={testimonial.avatar} 
-                              fallbackSrc="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150"
-                              alt={testimonial.name}
-                              category="branding"
-                              className="w-full h-full rounded-full object-cover"
-                            />
-                          </div>
-                        </div>
-
-                        {/* Meta labels */}
-                        <div>
-                          <h3 className="font-display font-bold text-base text-charcoal leading-tight">
-                            {testimonial.name}
-                          </h3>
-                          <p className="text-xs text-muted-dark mt-1 font-mono font-medium">
-                            {testimonial.role}, <span className="text-charcoal/80 font-semibold">{testimonial.company}</span>
-                          </p>
-                        </div>
-
-                        {/* Star Rating Panel */}
-                        <div className="flex gap-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 text-gold fill-gold" />
-                          ))}
-                        </div>
-
+          {/* Slider Container with AnimatePresence */}
+          <div className="relative overflow-hidden w-full grow flex items-center">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 sm:p-12 shadow-[0_20px_40px_rgba(212,175,55,0.04)] hover:shadow-[0_25px_50px_rgba(212,175,55,0.08)] border border-white/80 w-full relative z-10 transition-shadow duration-300"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-left">
+                  
+                  {/* Left Column: Avatar & Rating */}
+                  <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+                    
+                    {/* Circle Avatar with golden pulse glow */}
+                    <div className="relative w-24 h-24">
+                      <div className="absolute inset-0 rounded-full bg-gold/20 blur-md animate-pulse" />
+                      <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gold p-0.5 bg-white shadow-md">
+                        <SafeImage 
+                          src={currentTestimonial.avatar} 
+                          fallbackSrc="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150"
+                          alt={currentTestimonial.name}
+                          category="branding"
+                          className="w-full h-full rounded-full object-cover"
+                        />
                       </div>
-
-                      {/* Right Column: Narrative Review Statement */}
-                      <div className="md:col-span-8 text-left space-y-4">
-                        <span className="text-xs uppercase font-mono tracking-widest text-gold font-bold bg-gold/10 px-3 py-1 rounded-full">
-                          Verified Client Testimonial
-                        </span>
-                        <p className="text-base sm:text-lg text-charcoal font-sans font-light italic leading-relaxed">
-                          "{testimonial.review}"
-                        </p>
-                      </div>
-
                     </div>
-                  </motion.div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+
+                    {/* Meta labels */}
+                    <div>
+                      <h3 className="font-display font-extrabold text-lg text-charcoal leading-tight">
+                        {currentTestimonial.name}
+                      </h3>
+                      <p className="text-xs text-muted-dark mt-1 font-mono font-medium">
+                        {currentTestimonial.role}, <span className="text-gold font-bold">{currentTestimonial.company}</span>
+                      </p>
+                    </div>
+
+                    {/* Star Rating Panel */}
+                    <div className="flex gap-1 bg-[#FAF6EA] border border-charcoal/5 px-3 py-1 rounded-full shadow-inner">
+                      {[...Array(currentTestimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold" />
+                      ))}
+                    </div>
+
+                  </div>
+
+                  {/* Right Column: Narrative Review Statement */}
+                  <div className="md:col-span-8 space-y-4 flex flex-col justify-center">
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-gold font-bold bg-gold/10 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 self-start shadow-sm border border-gold/5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+                      Verified Client Endorsement
+                    </span>
+                    <p className="text-base sm:text-lg text-charcoal font-sans font-light italic leading-relaxed text-left drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                      "{currentTestimonial.review}"
+                    </p>
+                  </div>
+
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* Interactive Control Toggles */}
-          <div className="flex justify-between items-center mt-8 px-4 relative z-20">
+          {/* Interactive Navigation Control Panel */}
+          <div className="flex justify-between items-center mt-10 px-6 relative z-20">
             {/* Custom Styled Pagination Dots */}
-            <div id="testimonials-pagination" className="flex justify-start items-center" />
+            <div className="flex justify-start items-center gap-2">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleDotClick(idx)}
+                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === currentIndex 
+                      ? 'w-7 bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]' 
+                      : 'w-2.5 bg-charcoal/15 hover:bg-charcoal/30'
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
 
-            {/* Nav Arrows */}
+            {/* Navigation Arrows with ripple styled hovers */}
             <div className="flex gap-3">
               <button
-                onClick={() => swiper?.slidePrev()}
-                className="w-11 h-11 rounded-xl bg-white/80 backdrop-blur-md border border-charcoal/5 shadow-sm hover:shadow-lg hover:border-gold hover:text-gold text-charcoal flex items-center justify-center transition-all duration-300"
+                onClick={handlePrev}
+                className="w-11 h-11 rounded-xl bg-white/90 backdrop-blur-md border border-charcoal/10 shadow-sm hover:shadow-md hover:border-gold hover:text-gold text-charcoal flex items-center justify-center transition-all duration-300 cursor-pointer"
                 aria-label="Previous Review"
-                id="testimonial-nav-prev"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
-                onClick={() => swiper?.slideNext()}
-                className="w-11 h-11 rounded-xl bg-white/80 backdrop-blur-md border border-charcoal/5 shadow-sm hover:shadow-lg hover:border-gold hover:text-gold text-charcoal flex items-center justify-center transition-all duration-300"
+                onClick={handleNext}
+                className="w-11 h-11 rounded-xl bg-white/90 backdrop-blur-md border border-charcoal/10 shadow-sm hover:shadow-md hover:border-gold hover:text-gold text-charcoal flex items-center justify-center transition-all duration-300 cursor-pointer"
                 aria-label="Next Review"
-                id="testimonial-nav-next"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

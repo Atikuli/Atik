@@ -1,0 +1,6 @@
+# Robots.txt for Atik Hamim Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://atikhamim.com/sitemap.xml

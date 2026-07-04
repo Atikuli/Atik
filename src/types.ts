@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'logo' | 'branding' | 'flyer' | 'social-media' | 'packaging' | 'print';
+  category: string;
   image: string;
   fallbackImage: string;
   description: string;
@@ -16,6 +16,7 @@ export interface Service {
   description: string;
   iconName: string; // Used to dynamically map Lucide icons
   tags: string[];
+  category?: 'design' | 'technical';
 }
 
 export interface Skill {
@@ -72,18 +73,6 @@ export interface CertificationItem {
   date: string;
   credentialId?: string;
   logoUrl?: string;
-}
-
-export interface PricingPackage {
-  id: string;
-  name: string;
-  price: string;
-  billing: string;
-  description: string;
-  features: string[];
-  isPopular?: boolean;
-  buttonText: string;
-  category: 'design' | 'it' | 'hybrid';
 }
 
 export interface FAQItem {
