@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-cream: #FAF6EA;
+  --color-gold: #F4B223;
+  --color-charcoal: #222222;
+  --color-muted-dark: #666666;
+}
+
+/* Base resets & custom behaviors */
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF6EA;
+}
+
+body {
+  color: #222222;
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF6EA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 34, 34, 0.15);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F4B223;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Infinite marquee scroll */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Swiper custom pagination bullets */
+.custom-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(34, 34, 34, 0.2);
+  border-radius: 9999px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.custom-bullet-active {
+  background-color: #F4B223;
+  width: 26px;
+  box-shadow: 0 0 8px rgba(244, 178, 35, 0.6);
+}
+
+/* Elegant floating animations for cards */
+@keyframes float-y {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+/* Tactical ripple keyframe animations */
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple-effect 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  transform: scale(0);
+}
+
+/* Animate On Scroll (AOS) stylesheet import */
+@import "aos/dist/aos.css";
+
