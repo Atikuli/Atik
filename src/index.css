@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
@@ -16,11 +18,19 @@
 html {
   scroll-behavior: smooth;
   background-color: #FAF6EA;
+  color: #222222;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark {
+  background-color: #111111;
+  color: #FAF6EA;
 }
 
 body {
-  color: #222222;
   font-family: var(--font-sans);
+  background-color: transparent;
+  color: inherit;
 }
 
 /* Custom Scrollbars */
@@ -31,11 +41,21 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #FAF6EA;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #111111;
 }
 
 ::-webkit-scrollbar-thumb {
   background: rgba(34, 34, 34, 0.15);
   border-radius: 10px;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(250, 246, 234, 0.15);
 }
 
 ::-webkit-scrollbar-thumb:hover {

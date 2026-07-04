@@ -22,9 +22,9 @@ export default function About() {
 
   const specializationCards = [
     { title: 'Graphic Design', desc: 'Timeless layouts & visual hierarchy', icon: Palette, color: 'bg-gold/10 text-gold' },
-    { title: 'Brand Identity', desc: 'Bespoke design systems & guidelines', icon: Sparkles, color: 'bg-[#FAF6EA] text-charcoal border border-gold/30' },
+    { title: 'Brand Identity', desc: 'Bespoke design systems & guidelines', icon: Sparkles, color: 'bg-[#FAF6EA] dark:bg-gold/10 text-charcoal dark:text-gold border border-gold/30 dark:border-transparent' },
     { title: 'Social Media Design', desc: 'Engaging, clean and modern grids', icon: Layout, color: 'bg-gold/10 text-gold' },
-    { title: 'Print Design', desc: 'Sophisticated dielines and pre-press', icon: Printer, color: 'bg-charcoal text-white' },
+    { title: 'Print Design', desc: 'Sophisticated dielines and pre-press', icon: Printer, color: 'bg-charcoal dark:bg-gold/10 text-white dark:text-gold' },
   ];
 
   return (
@@ -49,7 +49,7 @@ export default function About() {
             <div className="absolute inset-4 rounded-[2rem] bg-gold/10 rotate-3 group-hover:rotate-6 transition-transform duration-500" />
             <div className="absolute inset-4 rounded-[2rem] border border-gold/40 -rotate-3 group-hover:-rotate-6 transition-transform duration-500" />
             
-            <div className="relative rounded-[2rem] overflow-hidden bg-white p-3 shadow-xl border border-charcoal/5">
+            <div className="relative rounded-[2rem] overflow-hidden bg-white dark:bg-[#1a1a1a] p-3 shadow-xl border border-charcoal/5 dark:border-white/5">
               <SafeImage
                 src="https://res.cloudinary.com/davtdct3r/image/upload/v1783175593/IMG_20260612_183706_762.jpg_trr22g.jpg"
                 fallbackSrc="https://res.cloudinary.com/davtdct3r/image/upload/v1783175593/IMG_20260612_183706_762.jpg_trr22g.jpg"
@@ -71,13 +71,13 @@ export default function About() {
               data-aos="fade-left"
               data-aos-duration="1000"
             >
-              <h3 className="text-2xl font-display font-bold text-charcoal">
+              <h3 className="text-2xl font-display font-bold text-charcoal dark:text-cream">
                 Designing Visual Brands & Building Solid IT Backbones
               </h3>
-              <div className="space-y-4 text-muted-dark font-sans font-light text-base leading-[1.9]" style={{ lineHeight: '1.9' }}>
+              <div className="space-y-4 text-muted-dark dark:text-gray-300 font-sans font-light text-base leading-[1.9]" style={{ lineHeight: '1.9' }}>
                 {Array.isArray(personalInfo.about) ? (
                   personalInfo.about.map((para, index) => (
-                    <p key={index}>{para}</p>
+                     <p key={index}>{para}</p>
                   ))
                 ) : (
                   <p>{personalInfo.about}</p>
@@ -87,7 +87,7 @@ export default function About() {
 
             {/* Personal Details Grid */}
             <div 
-              className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 border-t border-b border-[#222222]/10 py-6 font-sans text-sm"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 border-t border-b border-[#222222]/10 dark:border-white/10 py-6 font-sans text-sm"
               data-aos="fade-left"
               data-aos-duration="1000"
               data-aos-delay="200"
@@ -98,13 +98,13 @@ export default function About() {
                     <detail.icon className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="block text-xs font-mono text-muted-dark uppercase tracking-wider">{detail.label}</span>
+                    <span className="block text-xs font-mono text-muted-dark dark:text-gray-400 uppercase tracking-wider">{detail.label}</span>
                     {detail.isLink ? (
-                      <a href={detail.href} className="font-medium text-charcoal hover:text-gold transition-colors underline decoration-gold/30">
+                      <a href={detail.href} className="font-medium text-charcoal dark:text-cream hover:text-gold transition-colors underline decoration-gold/30">
                         {detail.value}
                       </a>
                     ) : (
-                      <span className="font-medium text-charcoal">{detail.value}</span>
+                      <span className="font-medium text-charcoal dark:text-cream">{detail.value}</span>
                     )}
                   </div>
                 </div>
@@ -113,12 +113,12 @@ export default function About() {
 
             {/* Specialization Cards */}
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-              <h4 className="text-sm font-mono font-bold uppercase tracking-wider text-charcoal mb-4">Core Focus Areas</h4>
+              <h4 className="text-sm font-mono font-bold uppercase tracking-wider text-charcoal dark:text-cream mb-4">Core Focus Areas</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {specializationCards.map((card, idx) => (
                   <div 
                     key={idx} 
-                    className="bg-white rounded-2xl p-5 border border-charcoal/5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4 hover:-translate-y-1 hover:border-gold/30 group"
+                    className="bg-white dark:bg-[#1a1a1a]/80 rounded-2xl p-5 border border-charcoal/5 dark:border-white/5 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4 hover:-translate-y-1 hover:border-gold/30 dark:hover:border-gold/50 group"
                     data-aos="zoom-in"
                     data-aos-delay={idx * 100}
                   >
@@ -126,8 +126,8 @@ export default function About() {
                       <card.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h5 className="font-display font-bold text-sm text-charcoal group-hover:text-gold transition-colors">{card.title}</h5>
-                      <p className="text-xs text-muted-dark mt-1 leading-relaxed font-light">{card.desc}</p>
+                      <h5 className="font-display font-bold text-sm text-charcoal dark:text-cream group-hover:text-gold transition-colors">{card.title}</h5>
+                      <p className="text-xs text-muted-dark dark:text-gray-400 mt-1 leading-relaxed font-light">{card.desc}</p>
                     </div>
                   </div>
                 ))}

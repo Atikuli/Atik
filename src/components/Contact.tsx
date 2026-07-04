@@ -299,7 +299,7 @@ I visited your portfolio and would like to discuss a project with you.`;
         {/* Section Heading */}
         <div className="mb-16 text-center">
           <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold bg-gold/10 px-3.5 py-1.5 rounded-full">Contact Hub</span>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-charcoal mt-3 tracking-tight">Smart Contact Hub</h2>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-charcoal dark:text-cream mt-3 tracking-tight">Smart Contact Hub</h2>
           <div className="w-12 h-1 bg-gold mx-auto mt-5 rounded-full" />
         </div>
 
@@ -312,7 +312,7 @@ I visited your portfolio and would like to discuss a project with you.`;
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 bg-[#FAF6EA] border border-charcoal/5 rounded-[2.5rem] p-8 flex flex-col justify-between shadow-xl shadow-charcoal/5 relative overflow-hidden"
+            className="lg:col-span-5 bg-[#FAF6EA] dark:bg-[#1a1a1a] border border-charcoal/5 dark:border-white/5 rounded-[2.5rem] p-8 flex flex-col justify-between shadow-xl shadow-charcoal/5 relative overflow-hidden"
           >
             {/* Ambient Background Graphic */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
@@ -321,7 +321,7 @@ I visited your portfolio and would like to discuss a project with you.`;
               {/* Profile Card block */}
               <div className="flex items-center gap-5">
                 <div className="relative shrink-0">
-                  <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-gold p-1 bg-white shadow-md">
+                  <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-gold p-1 bg-white dark:bg-[#121212] shadow-md">
                     <img 
                       src="https://res.cloudinary.com/davtdct3r/image/upload/v1783175593/IMG_20260612_183706_762.jpg_trr22g.jpg" 
                       alt="Md. Atikul Islam Hamim" 
@@ -329,13 +329,13 @@ I visited your portfolio and would like to discuss a project with you.`;
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <span className="absolute -bottom-1.5 -right-1.5 bg-emerald-500 border-2 border-white rounded-full px-2 py-0.5 text-[8px] font-bold text-white flex items-center gap-0.5 shadow-sm font-mono uppercase">
+                  <span className="absolute -bottom-1.5 -right-1.5 bg-emerald-500 border-2 border-white dark:border-[#1a1a1a] rounded-full px-2 py-0.5 text-[8px] font-bold text-white flex items-center gap-0.5 shadow-sm font-mono uppercase">
                     Live
                   </span>
                 </div>
                 <div className="text-left">
-                  <h3 className="text-lg font-display font-bold text-charcoal leading-tight">Md. Atikul Islam Hamim</h3>
-                  <p className="text-xs text-muted-dark/90 font-medium mt-1">Graphic Designer & IT Support Specialist</p>
+                  <h3 className="text-lg font-display font-bold text-charcoal dark:text-cream leading-tight">Md. Atikul Islam Hamim</h3>
+                  <p className="text-xs text-muted-dark/90 dark:text-gray-300 font-medium mt-1">Graphic Designer & IT Support Specialist</p>
                   
                   <div className="mt-2 inline-flex items-center gap-1 text-[9px] font-mono font-bold uppercase text-gold bg-gold/10 px-2.5 py-0.5 rounded-md">
                     <ShieldCheck className="w-3.5 h-3.5" />
@@ -345,15 +345,15 @@ I visited your portfolio and would like to discuss a project with you.`;
               </div>
 
               {/* Verified metadata items list */}
-              <div className="space-y-4 pt-6 border-t border-charcoal/5 text-left text-xs">
+              <div className="space-y-4 pt-6 border-t border-charcoal/5 dark:border-white/5 text-left text-xs">
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-gold shadow-sm shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-gold shadow-sm shrink-0">
                     <MapPin className="w-4.5 h-4.5" />
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase font-mono text-muted-dark tracking-wider font-semibold block">Location</span>
-                    <p className="text-sm text-charcoal font-medium mt-0.5">Court Rayapara, Rajshahi, Bangladesh</p>
+                    <span className="text-[9px] uppercase font-mono text-muted-dark dark:text-gray-400 tracking-wider font-semibold block">Location</span>
+                    <p className="text-sm text-charcoal dark:text-cream font-medium mt-0.5">Court Rayapara, Rajshahi, Bangladesh</p>
                   </div>
                 </div>
 
@@ -361,12 +361,12 @@ I visited your portfolio and would like to discuss a project with you.`;
                   navigator.clipboard.writeText('mdatikulislamhamim68@gmail.com');
                   addToast('Email copied to clipboard!', 'success');
                 }}>
-                  <div className="w-9 h-9 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-gold shadow-sm shrink-0 group-hover:border-gold/30 transition-colors">
+                  <div className="w-9 h-9 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-gold shadow-sm shrink-0 group-hover:border-gold/30 transition-colors">
                     <Mail className="w-4.5 h-4.5" />
                   </div>
                   <div className="flex-1 overflow-hidden">
-                    <span className="text-[9px] uppercase font-mono text-muted-dark tracking-wider font-semibold block">Email</span>
-                    <p className="text-sm text-charcoal font-medium mt-0.5 break-all group-hover:text-gold transition-colors">mdatikulislamhamim68@gmail.com</p>
+                    <span className="text-[9px] uppercase font-mono text-muted-dark dark:text-gray-400 tracking-wider font-semibold block">Email</span>
+                    <p className="text-sm text-charcoal dark:text-cream font-medium mt-0.5 break-all group-hover:text-gold transition-colors">mdatikulislamhamim68@gmail.com</p>
                   </div>
                 </div>
 
@@ -374,29 +374,29 @@ I visited your portfolio and would like to discuss a project with you.`;
                   navigator.clipboard.writeText('+8801316839703');
                   addToast('Phone number copied!', 'success');
                 }}>
-                  <div className="w-9 h-9 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-gold shadow-sm shrink-0 group-hover:border-gold/30 transition-colors">
+                  <div className="w-9 h-9 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-gold shadow-sm shrink-0 group-hover:border-gold/30 transition-colors">
                     <Phone className="w-4.5 h-4.5" />
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase font-mono text-muted-dark tracking-wider font-semibold block">Phone</span>
-                    <p className="text-sm text-charcoal font-medium mt-0.5 group-hover:text-gold transition-colors">+8801316839703</p>
+                    <span className="text-[9px] uppercase font-mono text-muted-dark dark:text-gray-400 tracking-wider font-semibold block">Phone</span>
+                    <p className="text-sm text-charcoal dark:text-cream font-medium mt-0.5 group-hover:text-gold transition-colors">+8801316839703</p>
                   </div>
                 </div>
 
               </div>
 
               {/* Availability metrics block */}
-              <div className="bg-white border border-charcoal/5 rounded-2xl p-5 text-left space-y-3.5 shadow-sm">
+              <div className="bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 rounded-2xl p-5 text-left space-y-3.5 shadow-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-mono font-bold uppercase text-charcoal tracking-wider">Available for Freelance</span>
+                  <span className="text-xs font-mono font-bold uppercase text-charcoal dark:text-cream tracking-wider">Available for Freelance</span>
                 </div>
                 
-                <div className="flex items-start gap-3 pt-3 border-t border-charcoal/5">
+                <div className="flex items-start gap-3 pt-3 border-t border-charcoal/5 dark:border-white/5">
                   <Clock className="w-4.5 h-4.5 text-gold shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[9px] uppercase font-mono text-muted-dark tracking-wider block">Working Hours</span>
-                    <p className="text-xs text-charcoal font-medium mt-0.5 leading-relaxed">
+                    <span className="text-[9px] uppercase font-mono text-muted-dark dark:text-gray-400 tracking-wider block">Working Hours</span>
+                    <p className="text-xs text-charcoal dark:text-cream font-medium mt-0.5 leading-relaxed">
                       Saturday - Thursday<br />
                       <span className="font-mono text-gold font-bold">9 AM - 8 PM</span>
                     </p>
@@ -407,7 +407,7 @@ I visited your portfolio and would like to discuss a project with you.`;
             </div>
 
             {/* Embedded maps widget layout */}
-            <div className="h-44 relative rounded-2xl overflow-hidden mt-6 border border-charcoal/5 shadow-inner">
+            <div className="h-44 relative rounded-2xl overflow-hidden mt-6 border border-charcoal/5 dark:border-white/5 shadow-inner">
               <GoogleMap />
             </div>
 
@@ -419,7 +419,7 @@ I visited your portfolio and would like to discuss a project with you.`;
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-white/50 backdrop-blur-md border border-white/80 shadow-xl shadow-charcoal/5 p-8 sm:p-10 rounded-[2.5rem] flex flex-col justify-between relative"
+            className="lg:col-span-7 bg-white/50 dark:bg-[#1a1a1a]/50 backdrop-blur-md border border-white/80 dark:border-white/5 shadow-xl shadow-charcoal/5 p-8 sm:p-10 rounded-[2.5rem] flex flex-col justify-between relative"
           >
             <AnimatePresence mode="wait">
               {!submitted ? (
@@ -432,10 +432,10 @@ I visited your portfolio and would like to discuss a project with you.`;
                   noValidate
                 >
                   <div className="space-y-1">
-                    <h3 className="text-xl font-display font-extrabold text-charcoal flex items-center gap-2">
+                    <h3 className="text-xl font-display font-extrabold text-charcoal dark:text-cream flex items-center gap-2">
                       Send Me a Message <Sparkles className="w-4 h-4 text-gold fill-gold/15" />
                     </h3>
-                    <p className="text-xs text-muted-dark font-light leading-relaxed">
+                    <p className="text-xs text-muted-dark dark:text-gray-400 font-light leading-relaxed">
                       Send a secure message directly. Select your preferred channel below for automatic workflow configuration.
                     </p>
                   </div>
@@ -444,7 +444,7 @@ I visited your portfolio and would like to discuss a project with you.`;
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Full Name */}
                     <div className="space-y-1">
-                      <label htmlFor="name" className="text-[10px] font-mono uppercase font-bold text-charcoal tracking-wider flex justify-between">
+                      <label htmlFor="name" className="text-[10px] font-mono uppercase font-bold text-charcoal dark:text-cream tracking-wider flex justify-between">
                         <span>Full Name *</span>
                         {errors.name && touched.name && <span className="text-rose-600 font-mono text-[9px] font-normal lowercase">(!) {errors.name}</span>}
                       </label>
@@ -455,17 +455,17 @@ I visited your portfolio and would like to discuss a project with you.`;
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         onBlur={() => handleBlur('name')}
                         placeholder="e.g. John Doe"
-                        className={`w-full bg-[#FAF6EA]/40 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal transition-all ${
+                        className={`w-full bg-[#FAF6EA]/40 dark:bg-black/30 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal dark:text-cream transition-all ${
                           errors.name && touched.name
                             ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-400'
-                            : 'border-charcoal/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white'
+                            : 'border-charcoal/10 dark:border-white/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white dark:focus:bg-[#121212]'
                         }`}
                       />
                     </div>
 
                     {/* Email */}
                     <div className="space-y-1">
-                      <label htmlFor="email" className="text-[10px] font-mono uppercase font-bold text-charcoal tracking-wider flex justify-between">
+                      <label htmlFor="email" className="text-[10px] font-mono uppercase font-bold text-charcoal dark:text-cream tracking-wider flex justify-between">
                         <span>Email *</span>
                         {errors.email && touched.email && <span className="text-rose-600 font-mono text-[9px] font-normal lowercase">(!) {errors.email}</span>}
                       </label>
@@ -476,10 +476,10 @@ I visited your portfolio and would like to discuss a project with you.`;
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         onBlur={() => handleBlur('email')}
                         placeholder="e.g. john@example.com"
-                        className={`w-full bg-[#FAF6EA]/40 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal transition-all ${
+                        className={`w-full bg-[#FAF6EA]/40 dark:bg-black/30 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal dark:text-cream transition-all ${
                           errors.email && touched.email
                             ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-400'
-                            : 'border-charcoal/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white'
+                            : 'border-charcoal/10 dark:border-white/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white dark:focus:bg-[#121212]'
                         }`}
                       />
                     </div>
@@ -489,7 +489,7 @@ I visited your portfolio and would like to discuss a project with you.`;
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Phone Number */}
                     <div className="space-y-1">
-                      <label htmlFor="phone" className="text-[10px] font-mono uppercase font-bold text-charcoal tracking-wider flex justify-between">
+                      <label htmlFor="phone" className="text-[10px] font-mono uppercase font-bold text-charcoal dark:text-cream tracking-wider flex justify-between">
                         <span>Phone Number *</span>
                         {errors.phone && touched.phone && <span className="text-rose-600 font-mono text-[9px] font-normal lowercase">(!) {errors.phone}</span>}
                       </label>
@@ -500,36 +500,36 @@ I visited your portfolio and would like to discuss a project with you.`;
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         onBlur={() => handleBlur('phone')}
                         placeholder="e.g. +8801316839703"
-                        className={`w-full bg-[#FAF6EA]/40 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal transition-all ${
+                        className={`w-full bg-[#FAF6EA]/40 dark:bg-black/30 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal dark:text-cream transition-all ${
                           errors.phone && touched.phone
                             ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-400'
-                            : 'border-charcoal/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white'
+                            : 'border-charcoal/10 dark:border-white/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white dark:focus:bg-[#121212]'
                         }`}
                       />
                     </div>
 
                     {/* Preferred Contact Method dropdown */}
                     <div className="space-y-1">
-                      <label htmlFor="preferredMethod" className="text-[10px] font-mono uppercase font-bold text-charcoal tracking-wider">
+                      <label htmlFor="preferredMethod" className="text-[10px] font-mono uppercase font-bold text-charcoal dark:text-cream tracking-wider">
                         Preferred Contact Method
                       </label>
                       <select
                         id="preferredMethod"
                         value={formData.preferredMethod}
                         onChange={(e) => handleInputChange('preferredMethod', e.target.value)}
-                        className="w-full bg-[#FAF6EA]/40 border border-charcoal/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/50 focus:bg-white font-sans text-charcoal transition-all cursor-pointer"
+                        className="w-full bg-[#FAF6EA]/40 dark:bg-black/30 border border-charcoal/10 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/50 focus:bg-white dark:focus:bg-[#121212] font-sans text-charcoal dark:text-cream transition-all cursor-pointer"
                       >
-                        <option value="Email">Email (EmailJS Direct)</option>
-                        <option value="WhatsApp">WhatsApp Message</option>
-                        <option value="Telegram">Telegram DM</option>
-                        <option value="SMS">SMS Text Message</option>
+                        <option value="Email" className="dark:bg-[#1a1a1a] dark:text-cream">Email (EmailJS Direct)</option>
+                        <option value="WhatsApp" className="dark:bg-[#1a1a1a] dark:text-cream">WhatsApp Message</option>
+                        <option value="Telegram" className="dark:bg-[#1a1a1a] dark:text-cream">Telegram DM</option>
+                        <option value="SMS" className="dark:bg-[#1a1a1a] dark:text-cream">SMS Text Message</option>
                       </select>
                     </div>
                   </div>
 
                   {/* Subject */}
                   <div className="space-y-1">
-                    <label htmlFor="subject" className="text-[10px] font-mono uppercase font-bold text-charcoal tracking-wider flex justify-between">
+                    <label htmlFor="subject" className="text-[10px] font-mono uppercase font-bold text-charcoal dark:text-cream tracking-wider flex justify-between">
                       <span>Subject *</span>
                       {errors.subject && touched.subject && <span className="text-rose-600 font-mono text-[9px] font-normal lowercase">(!) {errors.subject}</span>}
                     </label>
@@ -540,17 +540,17 @@ I visited your portfolio and would like to discuss a project with you.`;
                       onChange={(e) => handleInputChange('subject', e.target.value)}
                       onBlur={() => handleBlur('subject')}
                       placeholder="e.g. Graphic Logo Project"
-                      className={`w-full bg-[#FAF6EA]/40 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal transition-all ${
+                      className={`w-full bg-[#FAF6EA]/40 dark:bg-black/30 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal dark:text-cream transition-all ${
                         errors.subject && touched.subject
                           ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-400'
-                          : 'border-charcoal/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white'
+                          : 'border-charcoal/10 dark:border-white/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white dark:focus:bg-[#121212]'
                       }`}
                     />
                   </div>
 
                   {/* Message */}
                   <div className="space-y-1">
-                    <label htmlFor="message" className="text-[10px] font-mono uppercase font-bold text-[#222222] tracking-wider flex justify-between">
+                    <label htmlFor="message" className="text-[10px] font-mono uppercase font-bold text-charcoal dark:text-cream tracking-wider flex justify-between">
                       <span>Message *</span>
                       {errors.message && touched.message && <span className="text-rose-600 font-mono text-[9px] font-normal lowercase">(!) {errors.message}</span>}
                     </label>
@@ -561,10 +561,10 @@ I visited your portfolio and would like to discuss a project with you.`;
                       onChange={(e) => handleInputChange('message', e.target.value)}
                       onBlur={() => handleBlur('message')}
                       placeholder="Let's build something... Please detail your graphics design or computer diagnostics needs."
-                      className={`w-full bg-[#FAF6EA]/40 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal resize-none transition-all ${
+                      className={`w-full bg-[#FAF6EA]/40 dark:bg-black/30 border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 font-sans text-charcoal dark:text-cream resize-none transition-all ${
                         errors.message && touched.message
                           ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-400'
-                          : 'border-charcoal/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white'
+                          : 'border-charcoal/10 dark:border-white/10 focus:border-gold/50 focus:ring-gold/50 focus:bg-white dark:focus:bg-[#121212]'
                       }`}
                     />
                   </div>
@@ -604,13 +604,13 @@ I visited your portfolio and would like to discuss a project with you.`;
                   >
                     <CheckCircle2 className="w-9 h-9" />
                   </motion.div>
-                  <h3 className="text-2xl font-display font-bold text-charcoal text-center">Transmission Complete!</h3>
-                  <p className="text-sm text-muted-dark max-w-sm leading-relaxed font-sans font-light text-center">
+                   <h3 className="text-2xl font-display font-bold text-charcoal dark:text-cream text-center">Transmission Complete!</h3>
+                  <p className="text-sm text-muted-dark dark:text-gray-300 max-w-sm leading-relaxed font-sans font-light text-center">
                     Your contact protocol has executed successfully. Md. Atikul Islam Hamim will review your inquiry and connect via your preferred communication method.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="text-xs font-semibold text-charcoal hover:text-gold uppercase tracking-wider font-mono border-b border-charcoal hover:border-gold transition-colors pt-4 cursor-pointer mx-auto"
+                    className="text-xs font-semibold text-charcoal dark:text-cream hover:text-gold dark:hover:text-gold uppercase tracking-wider font-mono border-b border-charcoal dark:border-cream hover:border-gold transition-colors pt-4 cursor-pointer mx-auto"
                   >
                     Establish Another Channel
                   </button>
@@ -623,13 +623,13 @@ I visited your portfolio and would like to discuss a project with you.`;
 
         {/* QUICK CONTACT BUTTONS SECTION */}
         <div className="mt-16 text-center space-y-5">
-          <span className="text-[10px] font-mono text-muted-dark uppercase tracking-widest font-semibold block">Quick Contact Cards</span>
+          <span className="text-[10px] font-mono text-muted-dark dark:text-gray-400 uppercase tracking-widest font-semibold block">Quick Contact Cards</span>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {/* Email Me */}
             <motion.div
               whileHover={{ y: -6, scale: 1.02 }}
               onClick={(e) => { handleRipple(e); handleQuickAction('email'); }}
-              className="relative overflow-hidden bg-white/40 backdrop-blur-md border border-charcoal/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
+              className="relative overflow-hidden bg-white/40 dark:bg-[#1a1a1a]/40 backdrop-blur-md border border-charcoal/5 dark:border-white/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
             >
               {/* Visual ripple effect overlay */}
               {ripples.map((rip) => (
@@ -645,18 +645,18 @@ I visited your portfolio and would like to discuss a project with you.`;
                 />
               ))}
               
-              <div className="w-10 h-10 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-gold shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.2)] transition-all">
+              <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-gold shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.2)] transition-all">
                 <Mail className="w-5 h-5" />
               </div>
-              <span className="text-sm font-display font-bold text-charcoal">Email Me</span>
-              <span className="text-[10px] text-muted-dark font-mono">mdatikulislam...</span>
+              <span className="text-sm font-display font-bold text-charcoal dark:text-cream">Email Me</span>
+              <span className="text-[10px] text-muted-dark dark:text-gray-400 font-mono">mdatikulislam...</span>
             </motion.div>
 
             {/* WhatsApp */}
             <motion.div
               whileHover={{ y: -6, scale: 1.02 }}
               onClick={(e) => { handleRipple(e); handleQuickAction('whatsapp'); }}
-              className="relative overflow-hidden bg-white/40 backdrop-blur-md border border-charcoal/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
+              className="relative overflow-hidden bg-white/40 dark:bg-[#1a1a1a]/40 backdrop-blur-md border border-charcoal/5 dark:border-white/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
             >
               {/* Visual ripple effect overlay */}
               {ripples.map((rip) => (
@@ -672,18 +672,18 @@ I visited your portfolio and would like to discuss a project with you.`;
                 />
               ))}
 
-              <div className="w-10 h-10 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-emerald-500 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all">
+              <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-emerald-500 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all">
                 <MessageCircle className="w-5 h-5 fill-emerald-50" />
               </div>
-              <span className="text-sm font-display font-bold text-charcoal">WhatsApp</span>
-              <span className="text-[10px] text-muted-dark font-mono">+8801518...</span>
+              <span className="text-sm font-display font-bold text-charcoal dark:text-cream">WhatsApp</span>
+              <span className="text-[10px] text-muted-dark dark:text-gray-400 font-mono">+8801518...</span>
             </motion.div>
 
             {/* Telegram */}
             <motion.div
               whileHover={{ y: -6, scale: 1.02 }}
               onClick={(e) => { handleRipple(e); handleQuickAction('telegram'); }}
-              className="relative overflow-hidden bg-white/40 backdrop-blur-md border border-charcoal/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
+              className="relative overflow-hidden bg-white/40 dark:bg-[#1a1a1a]/40 backdrop-blur-md border border-charcoal/5 dark:border-white/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
             >
               {/* Visual ripple effect overlay */}
               {ripples.map((rip) => (
@@ -699,18 +699,18 @@ I visited your portfolio and would like to discuss a project with you.`;
                 />
               ))}
 
-              <div className="w-10 h-10 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-blue-400 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(96,165,250,0.2)] transition-all">
+              <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-blue-400 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(96,165,250,0.2)] transition-all">
                 <Send className="w-5 h-5 fill-blue-50" />
               </div>
-              <span className="text-sm font-display font-bold text-charcoal">Telegram</span>
-              <span className="text-[10px] text-muted-dark font-mono">@Nahidhasan6996</span>
+              <span className="text-sm font-display font-bold text-charcoal dark:text-cream">Telegram</span>
+              <span className="text-[10px] text-muted-dark dark:text-gray-400 font-mono">@Nahidhasan6996</span>
             </motion.div>
 
             {/* Call Me */}
             <motion.div
               whileHover={{ y: -6, scale: 1.02 }}
               onClick={(e) => { handleRipple(e); handleQuickAction('call'); }}
-              className="relative overflow-hidden bg-white/40 backdrop-blur-md border border-charcoal/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
+              className="relative overflow-hidden bg-white/40 dark:bg-[#1a1a1a]/40 backdrop-blur-md border border-charcoal/5 dark:border-white/5 hover:border-gold/40 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)] p-5 rounded-2xl cursor-pointer transition-all duration-300 text-center flex flex-col items-center space-y-2 group"
             >
               {/* Visual ripple effect overlay */}
               {ripples.map((rip) => (
@@ -726,18 +726,18 @@ I visited your portfolio and would like to discuss a project with you.`;
                 />
               ))}
 
-              <div className="w-10 h-10 rounded-xl bg-white border border-charcoal/5 flex items-center justify-center text-amber-500 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all">
+              <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#121212] border border-charcoal/5 dark:border-white/5 flex items-center justify-center text-amber-500 shadow-sm group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.2)] transition-all">
                 <PhoneCall className="w-5 h-5" />
               </div>
-              <span className="text-sm font-display font-bold text-charcoal">Call Me</span>
-              <span className="text-[10px] text-muted-dark font-mono">+8801316839703</span>
+              <span className="text-sm font-display font-bold text-charcoal dark:text-cream">Call Me</span>
+              <span className="text-[10px] text-muted-dark dark:text-gray-400 font-mono">+8801316839703</span>
             </motion.div>
           </div>
         </div>
 
         {/* SOCIAL MEDIA SECTION */}
-        <div className="mt-16 pt-10 border-t border-charcoal/5 text-center space-y-5">
-          <span className="text-[10px] font-mono text-muted-dark uppercase tracking-widest font-bold block">Social Media Portal</span>
+        <div className="mt-16 pt-10 border-t border-charcoal/5 dark:border-white/5 text-center space-y-5">
+          <span className="text-[10px] font-mono text-muted-dark dark:text-gray-400 uppercase tracking-widest font-bold block">Social Media Portal</span>
           <div className="flex flex-wrap justify-center gap-3">
             {socialLinks.map((link) => {
               const LinkIcon = iconMap[link.iconName] || Mail;
@@ -760,7 +760,7 @@ I visited your portfolio and would like to discuss a project with you.`;
                       borderColor: 'rgba(212,175,55,0.5)'
                     }}
                     transition={{ type: 'spring', stiffness: 350, damping: 15 }}
-                    className="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-charcoal/10 text-muted-dark hover:text-gold transition-colors shadow-sm"
+                    className="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#1a1a1a] border border-charcoal/10 dark:border-white/10 text-muted-dark dark:text-gray-400 hover:text-gold hover:border-gold transition-colors shadow-sm"
                   >
                     <LinkIcon className="w-5 h-5" />
                   </motion.a>

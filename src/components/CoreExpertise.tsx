@@ -49,13 +49,13 @@ const expertiseItems = [
 
 export default function CoreExpertise() {
   return (
-    <section id="expertise" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 bg-[#FAF6EA]/30">
+    <section id="expertise" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 dark:border-white/5 bg-[#FAF6EA]/30 dark:bg-black/10">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Heading */}
         <div className="mb-14 text-left" data-aos="fade-up">
           <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold">Specialties</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal mt-1">Core Expertise</h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal dark:text-cream mt-1">Core Expertise</h2>
           <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
         </div>
 
@@ -70,7 +70,7 @@ export default function CoreExpertise() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
-                className="group relative h-full rounded-2xl bg-white p-6 sm:p-8 border border-charcoal/5 hover:border-gold/30 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                className="group relative h-full rounded-2xl bg-white dark:bg-[#1a1a1a] p-6 sm:p-8 border border-charcoal/5 dark:border-white/5 hover:border-gold/30 dark:hover:border-gold/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden"
                 id={`expertise-card-${index}`}
               >
                 {/* Micro Ambient Glow Background on Hover */}
@@ -83,12 +83,12 @@ export default function CoreExpertise() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display font-bold text-lg text-charcoal tracking-tight group-hover:text-gold transition-colors duration-300">
+                  <h3 className="font-display font-bold text-lg text-charcoal dark:text-cream tracking-tight group-hover:text-gold transition-colors duration-300">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-muted-dark leading-relaxed font-sans font-light">
+                  <p className="text-xs sm:text-sm text-muted-dark dark:text-gray-400 leading-relaxed font-sans font-light">
                     {item.description}
                   </p>
                 </div>

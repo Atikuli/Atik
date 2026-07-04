@@ -31,13 +31,13 @@ export default function Achievements() {
   ];
 
   return (
-    <section id="achievements" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 bg-[#FAF6EA]/20 relative">
+    <section id="achievements" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 dark:border-white/5 bg-[#FAF6EA]/20 dark:bg-black/10 relative">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Heading */}
         <div className="mb-14 text-left" data-aos="fade-up">
           <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold">Milestones</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal mt-1">My Achievements</h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal dark:text-cream mt-1">My Achievements</h2>
           <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
         </div>
 
@@ -50,7 +50,7 @@ export default function Achievements() {
                 key={index}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white/70 backdrop-blur-md p-6 sm:p-8 rounded-[2rem] border border-charcoal/5 shadow-sm hover:shadow-md hover:border-gold/30 transition-all duration-300 flex flex-col justify-between text-left h-full group"
+                className="bg-white/70 dark:bg-[#1a1a1a]/70 backdrop-blur-md p-6 sm:p-8 rounded-[2rem] border border-charcoal/5 dark:border-white/5 shadow-sm hover:shadow-md hover:border-gold/30 dark:hover:border-gold/50 transition-all duration-300 flex flex-col justify-between text-left h-full group"
                 data-aos="zoom-in"
                 data-aos-delay={index * 150}
               >
@@ -61,16 +61,16 @@ export default function Achievements() {
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="font-display font-extrabold text-base sm:text-lg text-charcoal leading-snug group-hover:text-gold transition-colors duration-300">
+                    <h3 className="font-display font-extrabold text-base sm:text-lg text-charcoal dark:text-cream leading-snug group-hover:text-gold transition-colors duration-300">
                       {ach.title}
                     </h3>
-                    <p className="text-xs text-muted-dark font-sans font-light leading-relaxed">
+                    <p className="text-xs text-muted-dark dark:text-gray-400 font-sans font-light leading-relaxed">
                       {ach.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-charcoal/[0.04] flex items-center justify-between text-[11px] font-mono font-bold text-gold uppercase tracking-wider">
+                <div className="mt-6 pt-4 border-t border-charcoal/[0.04] dark:border-white/[0.04] flex items-center justify-between text-[11px] font-mono font-bold text-gold uppercase tracking-wider">
                   <span>Verified Accomplishment</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-gold/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                 </div>

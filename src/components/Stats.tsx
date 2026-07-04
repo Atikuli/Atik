@@ -57,7 +57,7 @@ function AnimatedCounter({ value, suffix }: AnimatedCounterProps) {
   }, [value]);
 
   return (
-    <span ref={elementRef} className="font-display font-extrabold text-4xl sm:text-5xl text-charcoal tracking-tight">
+    <span ref={elementRef} className="font-display font-extrabold text-4xl sm:text-5xl text-charcoal dark:text-cream tracking-tight">
       {count}
       <span className="text-gold">{suffix}</span>
     </span>
@@ -73,7 +73,7 @@ const statIcons: Record<string, any> = {
 
 export default function Stats() {
   return (
-    <section className="py-16 px-6 sm:px-12 lg:px-16 border-b border-[#222222]/5 bg-white/40">
+    <section className="py-16 px-6 sm:px-12 lg:px-16 border-b border-[#222222]/5 dark:border-white/5 bg-white/40 dark:bg-black/10">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, idx) => {
@@ -85,14 +85,14 @@ export default function Stats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-[2rem] p-6 sm:p-8 border border-charcoal/5 shadow-sm text-center flex flex-col items-center justify-center space-y-3 hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-[#1a1a1a]/80 rounded-[2rem] p-6 sm:p-8 border border-charcoal/5 dark:border-white/5 shadow-sm text-center flex flex-col items-center justify-center space-y-3 hover:shadow-md transition-shadow"
               >
                 <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold">
                   <IconComponent className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  <span className="text-[10px] sm:text-xs font-mono font-medium uppercase tracking-widest text-muted-dark mt-2">
+                  <span className="text-[10px] sm:text-xs font-mono font-medium uppercase tracking-widest text-muted-dark dark:text-gray-400 mt-2">
                     {stat.label}
                   </span>
                 </div>

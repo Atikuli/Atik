@@ -139,7 +139,7 @@ export default function Lightbox({ project, onClose, onPrev, onNext }: LightboxP
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 40 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="w-full md:w-[420px] bg-[#FAF6EA] border-t md:border-t-0 md:border-l border-white/10 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto h-2/5 md:h-full text-left"
+              className="w-full md:w-[420px] bg-[#FAF6EA] dark:bg-[#1a1a1a] border-t md:border-t-0 md:border-l border-white/10 dark:border-white/5 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto h-2/5 md:h-full text-left"
             >
               <div className="space-y-6">
                 {/* Category & Status */}
@@ -161,45 +161,45 @@ export default function Lightbox({ project, onClose, onPrev, onNext }: LightboxP
                 {/* Main Case Title */}
                 <div className="space-y-1.5">
                   <p className="text-[10px] font-mono text-gold uppercase tracking-widest font-bold">Project Details</p>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-charcoal leading-tight">
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-charcoal dark:text-cream leading-tight">
                     {project.title}
                   </h3>
                 </div>
 
                 {/* Narrative Overview */}
                 <div className="space-y-2.5">
-                  <h4 className="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-dark border-b border-[#222222]/10 pb-1.5">
+                  <h4 className="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-dark dark:text-gray-400 border-b border-[#222222]/10 dark:border-white/10 pb-1.5">
                     Creative Narrative
                   </h4>
-                  <p className="text-xs sm:text-sm text-muted-dark leading-relaxed font-sans font-light">
+                  <p className="text-xs sm:text-sm text-muted-dark dark:text-gray-300 leading-relaxed font-sans font-light">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Metadata Table */}
-                <div className="space-y-3 bg-white/80 rounded-2xl p-4 border border-charcoal/5 shadow-inner">
+                <div className="space-y-3 bg-white/80 dark:bg-black/30 rounded-2xl p-4 border border-charcoal/5 dark:border-white/5 shadow-inner">
                   
                   <div className="flex items-center gap-3 text-xs">
                     <User className="w-3.5 h-3.5 text-gold shrink-0" />
                     <div>
-                      <span className="text-muted-dark block text-[9px] uppercase font-mono tracking-wider">Client</span>
-                      <span className="font-bold text-charcoal">{project.client}</span>
+                      <span className="text-muted-dark dark:text-gray-400 block text-[9px] uppercase font-mono tracking-wider">Client</span>
+                      <span className="font-bold text-charcoal dark:text-cream">{project.client}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 text-xs border-t border-charcoal/[0.04] pt-2.5">
+                  <div className="flex items-center gap-3 text-xs border-t border-charcoal/[0.04] dark:border-white/[0.04] pt-2.5">
                     <Calendar className="w-3.5 h-3.5 text-gold shrink-0" />
                     <div>
-                      <span className="text-muted-dark block text-[9px] uppercase font-mono tracking-wider">Completed</span>
-                      <span className="font-bold text-charcoal">{project.date}</span>
+                      <span className="text-muted-dark dark:text-gray-400 block text-[9px] uppercase font-mono tracking-wider">Completed</span>
+                      <span className="font-bold text-charcoal dark:text-cream">{project.date}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 text-xs border-t border-charcoal/[0.04] pt-2.5">
+                  <div className="flex items-center gap-3 text-xs border-t border-charcoal/[0.04] dark:border-white/[0.04] pt-2.5">
                     <Hammer className="w-3.5 h-3.5 text-gold shrink-0" />
                     <div>
-                      <span className="text-muted-dark block text-[9px] uppercase font-mono tracking-wider">Tools & Utilities</span>
-                      <span className="font-bold text-charcoal">{project.tools.join(', ')}</span>
+                      <span className="text-muted-dark dark:text-gray-400 block text-[9px] uppercase font-mono tracking-wider">Tools & Utilities</span>
+                      <span className="font-bold text-charcoal dark:text-cream">{project.tools.join(', ')}</span>
                     </div>
                   </div>
 
@@ -212,7 +212,7 @@ export default function Lightbox({ project, onClose, onPrev, onNext }: LightboxP
                   href={project.image}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-charcoal text-white rounded-xl text-xs font-mono font-bold hover:bg-gold hover:text-charcoal transition-all shadow-sm"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-charcoal dark:bg-black text-white rounded-xl text-xs font-mono font-bold hover:bg-gold hover:text-charcoal transition-all shadow-sm"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   Live Preview
@@ -223,7 +223,7 @@ export default function Lightbox({ project, onClose, onPrev, onNext }: LightboxP
                   href="https://github.com/mdatikulislamhamim68"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-white border border-charcoal/10 text-charcoal rounded-xl text-xs font-mono hover:border-gold/50 hover:bg-[#FAF6EA] transition-all"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-white dark:bg-[#1a1a1a] border border-charcoal/10 dark:border-white/10 text-charcoal dark:text-cream rounded-xl text-xs font-mono hover:border-gold/50 dark:hover:border-gold/50 hover:bg-[#FAF6EA] dark:hover:bg-black/20 transition-all"
                 >
                   <Github className="w-3.5 h-3.5 text-charcoal/70" />
                   Source Code

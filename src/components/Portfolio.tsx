@@ -50,19 +50,19 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5">
+    <section id="portfolio" className="py-20 px-6 sm:px-12 lg:px-16 border-t border-[#222222]/5 dark:border-white/5">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Heading */}
         <div className="mb-10 text-left flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6" data-aos="fade-up">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-gold font-bold">My Works</span>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal mt-1">Creative Portfolio</h2>
-            <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-charcoal dark:text-cream mt-1">Creative Portfolio</h2>
+            <div className="w-12 h-1 bg-gold mt-4 mx-auto rounded-full" />
           </div>
 
           {/* Inline short stats indicator */}
-          <div className="inline-flex items-center gap-2 bg-white/60 border border-charcoal/5 px-4 py-2 rounded-xl text-xs font-mono text-muted-dark shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white/60 dark:bg-[#1a1a1a]/60 border border-charcoal/5 dark:border-white/5 px-4 py-2 rounded-xl text-xs font-mono text-muted-dark dark:text-gray-300 shadow-sm">
             <Layers className="w-3.5 h-3.5 text-gold" />
             <span>Showing {filteredProjects.length} Selected Projects</span>
           </div>
@@ -89,14 +89,14 @@ export default function Portfolio() {
                 
                 {/* Text Label */}
                 <span className={`relative z-10 transition-colors duration-300 ${
-                  isActive ? 'text-charcoal font-extrabold' : 'text-muted-dark hover:text-charcoal'
+                  isActive ? 'text-charcoal font-extrabold' : 'text-muted-dark dark:text-gray-400 hover:text-charcoal dark:hover:text-cream'
                 }`}>
                   {cat.label}
                 </span>
 
                 {/* Subtle outer stroke on inactive buttons */}
                 {!isActive && (
-                  <div className="absolute inset-0 rounded-xl border border-[#222222]/5 hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-xl border border-[#222222]/5 dark:border-white/5 hover:border-gold/30 transition-colors duration-300 pointer-events-none" />
                 )}
               </button>
             );
@@ -117,7 +117,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="group relative bg-white/40 backdrop-blur-md rounded-3xl border border-charcoal/5 hover:border-gold/60 shadow-inner hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500 overflow-hidden flex flex-col h-full"
+                className="group relative bg-white/40 dark:bg-[#1a1a1a]/40 backdrop-blur-md rounded-3xl border border-charcoal/5 dark:border-white/5 hover:border-gold/60 shadow-inner hover:shadow-2xl hover:shadow-gold/5 transition-all duration-500 overflow-hidden flex flex-col h-full"
                 id={`portfolio-card-${project.id}`}
               >
                 {/* Thumbnail container with zoom on hover */}
@@ -137,7 +137,7 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Eye Badge floating on hover */}
-                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-charcoal opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 shadow-md">
+                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-md flex items-center justify-center text-charcoal dark:text-cream opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 shadow-md">
                     <Eye className="w-4 h-4 text-gold" />
                   </div>
                 </div>
@@ -152,22 +152,22 @@ export default function Portfolio() {
                     </span>
 
                     {/* Title */}
-                    <h3 className="text-base font-display font-bold text-charcoal leading-snug group-hover:text-gold transition-colors duration-300">
+                    <h3 className="text-base font-display font-bold text-charcoal dark:text-cream leading-snug group-hover:text-gold transition-colors duration-300">
                       {project.title}
                     </h3>
 
                     {/* Short Description */}
-                    <p className="text-xs text-muted-dark leading-relaxed font-sans font-light line-clamp-2">
+                    <p className="text-xs text-muted-dark dark:text-gray-400 leading-relaxed font-sans font-light line-clamp-2">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Dynamic Action Buttons Row */}
-                  <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-charcoal/[0.04] mt-2">
+                  <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-charcoal/[0.04] dark:border-white/5 mt-2">
                     {/* View Details Button */}
                     <button
                       onClick={() => setSelectedProjectIndex(index)}
-                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-charcoal text-white hover:bg-gold hover:text-charcoal transition-all text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm cursor-pointer"
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-charcoal dark:bg-black text-white hover:bg-gold hover:text-charcoal transition-all text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm cursor-pointer border border-transparent dark:border-white/10"
                     >
                       <Info className="w-3 h-3" />
                       Details
@@ -176,7 +176,7 @@ export default function Portfolio() {
                     {/* Preview Button */}
                     <button
                       onClick={() => setSelectedProjectIndex(index)}
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#FAF6EA] border border-charcoal/10 text-charcoal hover:bg-gold/15 hover:border-gold transition-all text-[10px] font-mono font-bold uppercase tracking-wider cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#FAF6EA] dark:bg-black/20 border border-charcoal/10 dark:border-white/10 text-charcoal dark:text-cream hover:bg-gold/15 dark:hover:bg-gold/15 hover:border-gold transition-all text-[10px] font-mono font-bold uppercase tracking-wider cursor-pointer"
                     >
                       <Eye className="w-3 h-3" />
                       Preview
@@ -187,7 +187,7 @@ export default function Portfolio() {
                       href="https://github.com/mdatikulislamhamim68"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-white border border-charcoal/10 hover:border-gold/40 hover:bg-[#FAF6EA] text-charcoal/70 hover:text-charcoal transition-all"
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-white dark:bg-[#1c1c1a] border border-charcoal/10 dark:border-white/10 hover:border-gold/40 hover:bg-[#FAF6EA] dark:hover:bg-[#FAF6EA] text-charcoal/70 dark:text-gray-400 hover:text-charcoal dark:hover:text-charcoal transition-all"
                       title="View GitHub Project"
                     >
                       <Github className="w-3.5 h-3.5" />
