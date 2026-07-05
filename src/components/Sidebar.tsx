@@ -112,7 +112,7 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
   return (
     <>
       {/* Mobile Top Header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 h-20 bg-cream/90 dark:bg-[#121212]/90 backdrop-blur-md border-b border-charcoal/10 dark:border-white/10 px-6 flex items-center justify-between z-40">
+      <header id="mobile-header" className="lg:hidden fixed top-0 left-0 right-0 h-20 bg-cream/90 dark:bg-[#121212]/90 backdrop-blur-md border-b border-charcoal/10 dark:border-white/10 px-6 flex items-center justify-between z-40">
         <div className="flex items-center gap-3">
           <motion.img 
             src="https://res.cloudinary.com/davtdct3r/image/upload/f_auto,q_auto/image-clean_mrkr6l" 

@@ -9,12 +9,45 @@ import { useApp } from '../context/AppContext';
 export default function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
   const { t, translate, language } = useApp();
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTitleIndex((prev) => (prev + 1) % personalInfo.titles.length);
     }, 3000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      const header = document.getElementById('mobile-header');
+      if (header) {
+        const rect = header.getBoundingClientRect();
+        setHeaderHeight(rect.height || header.offsetHeight || 0);
+      } else {
+        setHeaderHeight(0);
+      }
+    };
+
+    updateHeight();
+
+    // Setup ResizeObserver for responsive auto-adjustment if header height changes
+    let resizeObserver: ResizeObserver | null = null;
+    const header = document.getElementById('mobile-header');
+    if (header && typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        updateHeight();
+      });
+      resizeObserver.observe(header);
+    }
+
+    window.addEventListener('resize', updateHeight);
+    return () => {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      window.removeEventListener('resize', updateHeight);
+    };
   }, []);
 
   const handleScrollToContact = () => {
@@ -25,7 +58,11 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="h-screen flex items-center px-6 sm:px-12 lg:px-16 overflow-hidden relative">
+    <section 
+      id="home" 
+      className="min-h-screen lg:h-screen flex items-center px-6 sm:px-12 lg:px-16 overflow-hidden relative"
+      style={{ paddingTop: headerHeight > 0 ? `${headerHeight}px` : undefined }}
+    >
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         
         {/* Left column - Content */}
